@@ -1,0 +1,508 @@
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T21:36:18+01:00 METHOD: GET
+2025-11-11T21:36:18+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T21:36:18+01:00 Session is_admin: false
+2025-11-11T21:36:18+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T21:36:20+01:00 METHOD: GET
+2025-11-11T21:36:20+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T21:36:20+01:00 Session is_admin: false
+2025-11-11T21:36:20+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T21:36:21+01:00 METHOD: GET
+2025-11-11T21:36:21+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T21:36:21+01:00 Session is_admin: false
+2025-11-11T21:36:21+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T21:36:21+01:00 METHOD: GET
+2025-11-11T21:36:21+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T21:36:21+01:00 Session is_admin: false
+2025-11-11T21:36:21+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T21:36:22+01:00 METHOD: GET
+2025-11-11T21:36:22+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T21:36:22+01:00 Session is_admin: false
+2025-11-11T21:36:22+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T21:37:06+01:00 METHOD: GET
+2025-11-11T21:37:06+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T21:37:06+01:00 Session is_admin: not set
+2025-11-11T21:37:06+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T21:37:07+01:00 METHOD: GET
+2025-11-11T21:37:07+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T21:37:07+01:00 Session is_admin: not set
+2025-11-11T21:37:07+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== TRAITEMENT_TRAJET.PHP START ===
+2025-11-11T21:40:57+01:00 METHOD: POST
+2025-11-11T21:40:57+01:00 URI: /exsepareoffre/traitement_trajet.php
+2025-11-11T21:40:57+01:00 POST keys: utilisateur_id, lieu_depart, lieu_arrivee, date_trajet, heure_trajet, places_disponibles, prix, description, marque, modele, equipements, preferences
+2025-11-11T21:40:57+01:00 DB connected
+2025-11-11T21:40:57+01:00 POST request validated
+2025-11-11T21:40:57+01:00 POST fields: utilisateur_id, lieu_depart, lieu_arrivee, date_trajet, heure_trajet, places_disponibles, prix, description, marque, modele, equipements, preferences
+2025-11-11T21:40:57+01:00 All required fields present
+2025-11-11T21:40:57+01:00 ERROR: User not logged in
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T21:40:59+01:00 METHOD: GET
+2025-11-11T21:40:59+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T21:40:59+01:00 Session is_admin: not set
+2025-11-11T21:40:59+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T21:41:04+01:00 METHOD: GET
+2025-11-11T21:41:04+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T21:41:04+01:00 Session is_admin: not set
+2025-11-11T21:41:04+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== LOGIN.PHP START ===
+2025-11-11T21:41:08+01:00 METHOD: POST
+2025-11-11T21:41:08+01:00 URI: /exsepareoffre/login.php?t=1762893668468
+2025-11-11T21:41:08+01:00 POST data: {"email":"test@test.com","password":"test123","role":"user"}
+2025-11-11T21:41:08+01:00 DB.php loaded
+2025-11-11T21:41:08+01:00 Email: test@test.com | Role: user
+2025-11-11T21:41:08+01:00 Validation OK - Connexion DB...
+2025-11-11T21:41:08+01:00 DB connected - Query user...
+2025-11-11T21:41:08+01:00 Query executed - Rows: 1
+2025-11-11T21:41:08+01:00 User found: test@test.com | Status: actif
+2025-11-11T21:41:08+01:00 Password OK - Session set
+2025-11-11T21:41:08+01:00 SUCCESS - Login OK
+=== LOGIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T21:41:11+01:00 METHOD: GET
+2025-11-11T21:41:11+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T21:41:11+01:00 Session is_admin: false
+2025-11-11T21:41:11+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== TRAITEMENT_TRAJET.PHP START ===
+2025-11-11T21:41:50+01:00 METHOD: POST
+2025-11-11T21:41:50+01:00 URI: /exsepareoffre/traitement_trajet.php
+2025-11-11T21:41:50+01:00 POST keys: utilisateur_id, lieu_depart, lieu_arrivee, date_trajet, heure_trajet, places_disponibles, prix, description, marque, modele, equipements, preferences
+2025-11-11T21:41:50+01:00 DB connected
+2025-11-11T21:41:50+01:00 POST request validated
+2025-11-11T21:41:50+01:00 POST fields: utilisateur_id, lieu_depart, lieu_arrivee, date_trajet, heure_trajet, places_disponibles, prix, description, marque, modele, equipements, preferences
+2025-11-11T21:41:50+01:00 All required fields present
+2025-11-11T21:41:50+01:00 User ID from session: 2
+2025-11-11T21:41:50+01:00 Calling trajet->creer()...
+2025-11-11T21:41:50+01:00 SUCCESS: Trajet created
+=== TRAITEMENT_TRAJET.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T21:41:56+01:00 METHOD: GET
+2025-11-11T21:41:56+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T21:41:56+01:00 Session is_admin: false
+2025-11-11T21:41:56+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T21:41:57+01:00 METHOD: GET
+2025-11-11T21:41:57+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T21:41:57+01:00 Session is_admin: false
+2025-11-11T21:41:57+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T21:54:47+01:00 METHOD: GET
+2025-11-11T21:54:47+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T21:54:47+01:00 Session is_admin: false
+2025-11-11T21:54:47+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T21:54:49+01:00 METHOD: GET
+2025-11-11T21:54:49+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T21:54:49+01:00 Session is_admin: false
+2025-11-11T21:54:49+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== LOGIN.PHP START ===
+2025-11-11T21:54:54+01:00 METHOD: POST
+2025-11-11T21:54:54+01:00 URI: /exsepareoffre/login.php?t=1762894494979
+2025-11-11T21:54:54+01:00 POST data: {"email":"test@test.com","password":"test123","role":"user"}
+2025-11-11T21:54:54+01:00 DB.php loaded
+2025-11-11T21:54:54+01:00 Email: test@test.com | Role: user
+2025-11-11T21:54:54+01:00 Validation OK - Connexion DB...
+2025-11-11T21:54:54+01:00 DB connected - Query user...
+2025-11-11T21:54:54+01:00 Query executed - Rows: 1
+2025-11-11T21:54:54+01:00 User found: test@test.com | Status: actif
+2025-11-11T21:54:55+01:00 Password OK - Session set
+2025-11-11T21:54:55+01:00 SUCCESS - Login OK
+=== LOGIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T21:54:57+01:00 METHOD: GET
+2025-11-11T21:54:57+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T21:54:57+01:00 Session is_admin: false
+2025-11-11T21:54:57+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== TRAITEMENT_TRAJET.PHP START ===
+2025-11-11T21:56:11+01:00 METHOD: POST
+2025-11-11T21:56:11+01:00 URI: /exsepareoffre/traitement_trajet.php
+2025-11-11T21:56:11+01:00 POST keys: utilisateur_id, lieu_depart, lieu_arrivee, date_trajet, heure_trajet, places_disponibles, prix, description, marque, modele, equipements, preferences
+2025-11-11T21:56:11+01:00 DB connected
+2025-11-11T21:56:11+01:00 POST request validated
+2025-11-11T21:56:11+01:00 POST fields: utilisateur_id, lieu_depart, lieu_arrivee, date_trajet, heure_trajet, places_disponibles, prix, description, marque, modele, equipements, preferences
+2025-11-11T21:56:11+01:00 All required fields present
+2025-11-11T21:56:11+01:00 User ID from session: 2
+2025-11-11T21:56:11+01:00 Calling trajet->creer()...
+2025-11-11T21:56:11+01:00 SUCCESS: Trajet created
+=== TRAITEMENT_TRAJET.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T21:56:48+01:00 METHOD: GET
+2025-11-11T21:56:48+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T21:56:48+01:00 Session is_admin: false
+2025-11-11T21:56:48+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T21:56:49+01:00 METHOD: GET
+2025-11-11T21:56:49+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T21:56:49+01:00 Session is_admin: false
+2025-11-11T21:56:49+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T21:56:56+01:00 METHOD: GET
+2025-11-11T21:56:56+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T21:56:56+01:00 Session is_admin: false
+2025-11-11T21:56:56+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T22:01:37+01:00 METHOD: GET
+2025-11-11T22:01:37+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T22:01:37+01:00 Session is_admin: not set
+2025-11-11T22:01:37+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T22:01:41+01:00 METHOD: GET
+2025-11-11T22:01:41+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T22:01:41+01:00 Session is_admin: not set
+2025-11-11T22:01:41+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T22:01:42+01:00 METHOD: GET
+2025-11-11T22:01:42+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T22:01:42+01:00 Session is_admin: not set
+2025-11-11T22:01:42+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T22:02:49+01:00 METHOD: GET
+2025-11-11T22:02:49+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T22:02:49+01:00 Session is_admin: false
+2025-11-11T22:02:49+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T22:02:56+01:00 METHOD: GET
+2025-11-11T22:02:56+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T22:02:56+01:00 Session is_admin: false
+2025-11-11T22:02:56+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== LOGIN.PHP START ===
+2025-11-11T22:03:21+01:00 METHOD: POST
+2025-11-11T22:03:21+01:00 URI: /exsepareoffre/login.php?t=1762895001162
+2025-11-11T22:03:21+01:00 POST data: {"email":"admin@covoiturage.com","password":"admin123","role":"admin"}
+2025-11-11T22:03:21+01:00 DB.php loaded
+2025-11-11T22:03:21+01:00 Email: admin@covoiturage.com | Role: admin
+2025-11-11T22:03:21+01:00 Validation OK - Connexion DB...
+2025-11-11T22:03:21+01:00 DB connected - Query user...
+2025-11-11T22:03:21+01:00 Query executed - Rows: 1
+2025-11-11T22:03:21+01:00 User found: admin@covoiturage.com | Status: actif
+2025-11-11T22:03:21+01:00 Password OK - Session set
+2025-11-11T22:03:21+01:00 SUCCESS - Login OK
+=== LOGIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T22:03:21+01:00 METHOD: GET
+2025-11-11T22:03:21+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T22:03:21+01:00 Session is_admin: true
+2025-11-11T22:03:21+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== ADMIN.PHP START ===
+2025-11-11T22:03:21+01:00 METHOD: GET
+2025-11-11T22:03:21+01:00 URI: /exsepareoffre/admin.php?action=list_users
+2025-11-11T22:03:21+01:00 GET: {"action":"list_users"}
+2025-11-11T22:03:21+01:00 POST: []
+2025-11-11T22:03:21+01:00 Action requested: list_users
+2025-11-11T22:03:21+01:00 Processing: list_users
+2025-11-11T22:03:21+01:00 Users count: 2
+2025-11-11T22:03:21+01:00 Response sent
+=== ADMIN.PHP END ===
+
+=== ADMIN.PHP START ===
+2025-11-11T22:03:21+01:00 METHOD: GET
+2025-11-11T22:03:21+01:00 URI: /exsepareoffre/admin.php?action=list_offers
+2025-11-11T22:03:21+01:00 GET: {"action":"list_offers"}
+2025-11-11T22:03:21+01:00 POST: []
+2025-11-11T22:03:21+01:00 Action requested: list_offers
+2025-11-11T22:03:21+01:00 Processing: list_offers
+2025-11-11T22:03:21+01:00 Offers count: 4
+2025-11-11T22:03:21+01:00 Response sent
+=== ADMIN.PHP END ===
+
+=== ADMIN.PHP START ===
+2025-11-11T22:03:27+01:00 METHOD: POST
+2025-11-11T22:03:27+01:00 URI: /exsepareoffre/admin.php
+2025-11-11T22:03:27+01:00 GET: []
+2025-11-11T22:03:27+01:00 POST: {"action":"validate_offer","id":"4"}
+2025-11-11T22:03:27+01:00 Action requested: validate_offer
+2025-11-11T22:03:27+01:00 Processing: validate_offer ID=4
+2025-11-11T22:03:29+01:00 Response sent
+=== ADMIN.PHP END ===
+
+=== ADMIN.PHP START ===
+2025-11-11T22:03:33+01:00 METHOD: POST
+2025-11-11T22:03:33+01:00 URI: /exsepareoffre/admin.php
+2025-11-11T22:03:33+01:00 GET: []
+2025-11-11T22:03:33+01:00 POST: {"action":"validate_offer","id":"3"}
+2025-11-11T22:03:33+01:00 Action requested: validate_offer
+2025-11-11T22:03:33+01:00 Processing: validate_offer ID=3
+2025-11-11T22:03:35+01:00 Response sent
+=== ADMIN.PHP END ===
+
+=== ADMIN.PHP START ===
+2025-11-11T22:03:37+01:00 METHOD: POST
+2025-11-11T22:03:37+01:00 URI: /exsepareoffre/admin.php
+2025-11-11T22:03:37+01:00 GET: []
+2025-11-11T22:03:37+01:00 POST: {"action":"validate_offer","id":"3"}
+2025-11-11T22:03:37+01:00 Action requested: validate_offer
+2025-11-11T22:03:37+01:00 Processing: validate_offer ID=3
+2025-11-11T22:03:39+01:00 Response sent
+=== ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T22:03:51+01:00 METHOD: GET
+2025-11-11T22:03:51+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T22:03:51+01:00 Session is_admin: true
+2025-11-11T22:03:51+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== LOGIN.PHP START ===
+2025-11-11T22:03:56+01:00 METHOD: POST
+2025-11-11T22:03:56+01:00 URI: /exsepareoffre/login.php?t=1762895036887
+2025-11-11T22:03:56+01:00 POST data: {"email":"test@test.com","password":"test123","role":"user"}
+2025-11-11T22:03:56+01:00 DB.php loaded
+2025-11-11T22:03:56+01:00 Email: test@test.com | Role: user
+2025-11-11T22:03:56+01:00 Validation OK - Connexion DB...
+2025-11-11T22:03:56+01:00 DB connected - Query user...
+2025-11-11T22:03:56+01:00 Query executed - Rows: 1
+2025-11-11T22:03:56+01:00 User found: test@test.com | Status: actif
+2025-11-11T22:03:57+01:00 Password OK - Session set
+2025-11-11T22:03:57+01:00 SUCCESS - Login OK
+=== LOGIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T22:03:59+01:00 METHOD: GET
+2025-11-11T22:03:59+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T22:03:59+01:00 Session is_admin: false
+2025-11-11T22:03:59+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T22:04:13+01:00 METHOD: GET
+2025-11-11T22:04:13+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T22:04:13+01:00 Session is_admin: false
+2025-11-11T22:04:13+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T22:04:14+01:00 METHOD: GET
+2025-11-11T22:04:14+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T22:04:14+01:00 Session is_admin: false
+2025-11-11T22:04:14+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T22:04:15+01:00 METHOD: GET
+2025-11-11T22:04:15+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T22:04:15+01:00 Session is_admin: false
+2025-11-11T22:04:15+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T22:04:18+01:00 METHOD: GET
+2025-11-11T22:04:18+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T22:04:18+01:00 Session is_admin: false
+2025-11-11T22:04:18+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T22:04:19+01:00 METHOD: GET
+2025-11-11T22:04:19+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T22:04:19+01:00 Session is_admin: false
+2025-11-11T22:04:19+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T22:04:20+01:00 METHOD: GET
+2025-11-11T22:04:20+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T22:04:20+01:00 Session is_admin: false
+2025-11-11T22:04:20+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T22:05:04+01:00 METHOD: GET
+2025-11-11T22:05:04+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T22:05:04+01:00 Session is_admin: false
+2025-11-11T22:05:04+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T22:05:23+01:00 METHOD: GET
+2025-11-11T22:05:23+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T22:05:23+01:00 Session is_admin: false
+2025-11-11T22:05:23+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T22:06:47+01:00 METHOD: GET
+2025-11-11T22:06:47+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T22:06:47+01:00 Session is_admin: false
+2025-11-11T22:06:47+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T22:06:48+01:00 METHOD: GET
+2025-11-11T22:06:48+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T22:06:48+01:00 Session is_admin: false
+2025-11-11T22:06:48+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T22:11:49+01:00 METHOD: GET
+2025-11-11T22:11:49+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T22:11:49+01:00 Session is_admin: false
+2025-11-11T22:11:49+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T22:11:51+01:00 METHOD: GET
+2025-11-11T22:11:51+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T22:11:51+01:00 Session is_admin: false
+2025-11-11T22:11:51+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T22:11:52+01:00 METHOD: GET
+2025-11-11T22:11:52+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T22:11:52+01:00 Session is_admin: false
+2025-11-11T22:11:52+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T22:11:54+01:00 METHOD: GET
+2025-11-11T22:11:54+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T22:11:54+01:00 Session is_admin: false
+2025-11-11T22:11:54+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T22:11:55+01:00 METHOD: GET
+2025-11-11T22:11:55+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T22:11:55+01:00 Session is_admin: false
+2025-11-11T22:11:55+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T22:11:55+01:00 METHOD: GET
+2025-11-11T22:11:55+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T22:11:55+01:00 Session is_admin: false
+2025-11-11T22:11:55+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T22:12:44+01:00 METHOD: GET
+2025-11-11T22:12:44+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T22:12:44+01:00 Session is_admin: false
+2025-11-11T22:12:44+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T22:12:45+01:00 METHOD: GET
+2025-11-11T22:12:45+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T22:12:45+01:00 Session is_admin: false
+2025-11-11T22:12:45+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T22:15:38+01:00 METHOD: GET
+2025-11-11T22:15:38+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T22:15:38+01:00 Session is_admin: false
+2025-11-11T22:15:38+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T22:15:39+01:00 METHOD: GET
+2025-11-11T22:15:39+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T22:15:39+01:00 Session is_admin: false
+2025-11-11T22:15:39+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T22:15:40+01:00 METHOD: GET
+2025-11-11T22:15:40+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T22:15:40+01:00 Session is_admin: false
+2025-11-11T22:15:40+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T22:15:40+01:00 METHOD: GET
+2025-11-11T22:15:40+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T22:15:40+01:00 Session is_admin: false
+2025-11-11T22:15:40+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T22:15:44+01:00 METHOD: GET
+2025-11-11T22:15:44+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T22:15:44+01:00 Session is_admin: false
+2025-11-11T22:15:44+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T22:15:44+01:00 METHOD: GET
+2025-11-11T22:15:44+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T22:15:44+01:00 Session is_admin: false
+2025-11-11T22:15:44+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T22:17:20+01:00 METHOD: GET
+2025-11-11T22:17:20+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T22:17:20+01:00 Session is_admin: false
+2025-11-11T22:17:20+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-11T22:17:22+01:00 METHOD: GET
+2025-11-11T22:17:22+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-11T22:17:22+01:00 Session is_admin: false
+2025-11-11T22:17:22+01:00 Response sent
+=== IS_ADMIN.PHP END ===

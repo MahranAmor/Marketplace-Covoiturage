@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publier un Trajet - Covoiturage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #87CEEB 0%, #ffffff 100%);
+            min-height: 100vh;
+        }
+
+        .header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+            cursor: pointer;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #667eea;
+        }
+
+        .active {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .page-title h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-title p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .form-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        .form-section {
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            color: #333;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .required {
+            color: #e74c3c;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 0.8rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .price-input {
+            position: relative;
+        }
+
+        .price-input input {
+            padding-right: 50px;
+        }
+
+        .price-suffix {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+            font-weight: 500;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: #667eea;
+        }
+
+        .checkbox-item label {
+            margin: 0;
+            cursor: pointer;
+        }
+
+        .info-box {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-box p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .btn-container {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .btn-secondary:hover {
+            background: #f8f9fa;
+        }
+
+        .success-message {
+            display: none;
+            background: #d4edda;
+            color: #155724;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #28a745;
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .success-message.show {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .form-card {
+                padding: 1.5rem;
+            }
+
+            .page-title h1 {
+                font-size: 2rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .btn-container {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+        }
+
+        .panier-icon {
+            position: relative;
+            cursor: pointer;
+            padding: 0.5rem;
+            font-size: 1.2rem;
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        .panier-icon:hover {
+            color: #667eea;
+        }
+
+        .panier-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #e74c3c;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+   <!-- ✅ HEADER FINAL UNIFIÉ -->
+<header class="header">
+        <div class="nav-container">
+            <!-- Logo cliquable -->
+            <div class="logo" onclick="window.location.href='index_one.html'">🚗 CovoitPlus</div>
+
+            <!-- Menu de navigation -->
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="/exsepareoffre/index_one.html">Accueil</a></li>
+                    <li><a href="/exsepareoffre/Trajets.html">Trajets</a></li>
+                    <li><a href="/exsepareoffre/publier.html">Publier un trajet</a></li>
+                    <li><a href="/exsepareoffre/mesTrajets.html">Mes trajets</a></li>
+                    <li id="adminMenuItem" style="display:none;"><a href="/exsepareoffre/admin_dashboard.html">Admin</a></li>
+                </ul>
+            </nav>
+
+            <!-- Authentification et Panier -->
+            <div class="auth-buttons">
+                <div class="panier-icon" onclick="showPanier()">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="panier-count" id="panierCount">0</span>
+                </div>
+                <button class="btn btn-secondary" onclick="showModal('login')">Connexion</button>
+                <button class="btn btn-primary" onclick="showModal('register')">Inscription</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="page-title">
+            <h1>Publier un Trajet</h1>
+            <p>Partagez votre trajet et voyagez ensemble</p>
+        </div>
+
+        <div class="form-card">
+            <form id="publierForm" action="traitement_trajet.php" method="POST">
+                <!-- Champ caché pour l'utilisateur_id (sera géré par session plus tard) -->
+                <input type="hidden" name="utilisateur_id" value="1">
+                
+                <!-- Informations sur le trajet -->
+                <div class="form-section">
+                    <h3 class="section-title">
+                        <span>📍</span> Itinéraire
+                    </h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Ville de départ <span class="required">*</span></label>
+                            <input type="text" id="depart" name="lieu_depart" placeholder="Ex: Tunis" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Ville d'arrivée <span class="required">*</span></label>
+                            <input type="text" id="arrivee" name="lieu_arrivee" placeholder="Ex: Sfax" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Date du trajet <span class="required">*</span></label>
+                            <input type="date" id="date" name="date_trajet" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Heure de départ <span class="required">*</span></label>
+                            <input type="time" id="heure" name="heure_trajet" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Détails du trajet -->
+                <div class="form-section">
+                    <h3 class="section-title">
+                        <span>ℹ️</span> Détails du trajet
+                    </h3>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Nombre de places disponibles <span class="required">*</span></label>
+                            <select id="places" name="places_disponibles" required>
+                                <option value="">Sélectionner...</option>
+                                <option value="1">1 place</option>
+                                <option value="2">2 places</option>
+                                <option value="3">3 places</option>
+                                <option value="4">4 places</option>
+                                <option value="5">5+ places</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Prix par passager <span class="required">*</span></label>
+                            <div class="price-input">
+                                <input type="number" id="prix" name="prix" placeholder="0" min="1" step="0.5" required>
+                                <span class="price-suffix">DT</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Description du trajet</label>
+                        <textarea id="description" name="description" placeholder="Points de rendez-vous, détails sur le trajet, préférences..." required></textarea>
+                    </div>
+                </div>
+
+                <!-- Informations véhicule -->
+                <div class="form-section">
+                    <h3 class="section-title">
+                        <span>🚗</span> Informations sur le véhicule
+                    </h3>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Marque du véhicule</label>
+                            <input type="text" id="marque" name="marque" placeholder="Ex: Renault" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Modèle</label>
+                            <input type="text" id="modele" name="modele" placeholder="Ex: Clio" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Confort et équipements</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="climatisation" name="equipements[]" value="climatisation">
+                                <label for="climatisation">Climatisation</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="musique" name="equipements[]" value="musique">
+                                <label for="musique">Musique autorisée</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="bagages" name="equipements[]" value="bagages">
+                                <label for="bagages">Espace pour bagages</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="animaux" name="equipements[]" value="animaux">
+                                <label for="animaux">Animaux acceptés</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Préférences -->
+                <div class="form-section">
+                    <h3 class="section-title">
+                        <span>⚙️</span> Préférences
+                    </h3>
+
+                    <div class="info-box">
+                        <p>💡 Définissez vos préférences pour ce trajet afin d'assurer un voyage agréable pour tous.</p>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="fumeur" name="preferences[]" value="fumeur">
+                                <label for="fumeur">Fumeur accepté</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="detour" name="preferences[]" value="detour">
+                                <label for="detour">Détour possible</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="instantBook" name="preferences[]" value="instantBook">
+                                <label for="instantBook">Réservation instantanée (sans validation)</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Boutons d'action -->
+                <div class="btn-container">
+                    <button type="button" class="btn btn-secondary" onclick="resetForm()">Annuler</button>
+                    <button type="submit" class="btn btn-primary">📤 Publier le trajet</button>
+                </div>
+
+                <!-- Message de succès -->
+                <div class="success-message" id="successMessage">
+                    <h3>✅ Trajet publié avec succès !</h3>
+                    <p>Votre trajet est maintenant visible par tous les utilisateurs.</p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Définir la date minimum à aujourd'hui
+        document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('date').setAttribute('min', today);
+        });
+
+        // Gérer la soumission du formulaire
+        function handleSubmit(event) {
+            event.preventDefault();
+
+            // Récupérer les valeurs du formulaire
+            const trajet = {
+                depart: document.getElementById('depart').value,
+                arrivee: document.getElementById('arrivee').value,
+                date: document.getElementById('date').value,
+                heure: document.getElementById('heure').value,
+                places: parseInt(document.getElementById('places').value),
+                prix: parseFloat(document.getElementById('prix').value),
+                description: document.getElementById('description').value,
+                marque: document.getElementById('marque').value,
+                modele: document.getElementById('modele').value,
+                equipements: {
+                    climatisation: document.getElementById('climatisation').checked,
+                    musique: document.getElementById('musique').checked,
+                    bagages: document.getElementById('bagages').checked,
+                    animaux: document.getElementById('animaux').checked
+                },
+                preferences: {
+                    fumeur: document.getElementById('fumeur').checked,
+                    detour: document.getElementById('detour').checked,
+                    instantBook: document.getElementById('instantBook').checked
+                }
+            };
+
+            // Simuler la sauvegarde
+            console.log('Nouveau trajet publié:', trajet);
+
+            // Sauvegarder dans le localStorage
+            let trajets = JSON.parse(localStorage.getItem('mesTrajets') || '[]');
+            trajet.id = Date.now();
+            trajet.conducteur = 'Vous';
+            trajets.push(trajet);
+            localStorage.setItem('mesTrajets', JSON.stringify(trajets));
+
+            // Afficher le message de succès
+            const successMessage = document.getElementById('successMessage');
+            successMessage.classList.add('show');
+
+            // Réinitialiser le formulaire après 2 secondes
+            setTimeout(() => {
+                successMessage.classList.remove('show');
+                resetForm();
+                // Rediriger vers la page d'accueil
+                window.location.href = 'index.html';
+            }, 2000);
+        }
+
+        // Réinitialiser le formulaire
+        function resetForm() {
+            document.getElementById('publierForm').reset();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Met à jour le lien actif du menu selon la page courante
+        document.addEventListener('DOMContentLoaded', function() {
+            const path = window.location.pathname.split('/').pop();
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                if (link.getAttribute('href') === path) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Afficher le lien Admin si connecté en admin (vérification session via AJAX)
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('is_admin.php')
+                .then(r => r.json())
+                .then(data => {
+                    if (data.is_admin) {
+                        document.getElementById('adminMenuItem').style.display = '';
+                    }
+                });
+        });
+    </script>
+</body>
+</html>

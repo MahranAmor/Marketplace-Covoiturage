@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publier une Offre</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            max-width: 400px;
+            margin: auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <h1>Créer une Offre</h1>
+    <form action="traitement.php" method="POST" onsubmit="return validateForm()">
+        <label for="titre">Titre de l'offre :</label>
+        <input type="text" id="titre" name="titre" required>
+
+        <label for="description">Description :</label>
+        <textarea id="description" name="description" rows="5" required></textarea>
+
+        <button type="submit">Ajouter l'offre</button>
+    </form>
+
+    <script>
+        function validateForm() {
+            const titre = document.getElementById('titre').value.trim();
+            const description = document.getElementById('description').value.trim();
+
+            if (!titre || !description) {
+                alert('Veuillez remplir tous les champs.');
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>

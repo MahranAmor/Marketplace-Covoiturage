@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Endpoints - Diagnostic 405</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-card {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .test-card.success {
+            border-left: 5px solid #27ae60;
+        }
+        .test-card.error {
+            border-left: 5px solid #e74c3c;
+        }
+        .test-card.pending {
+            border-left: 5px solid #f39c12;
+        }
+        h1 { color: #333; }
+        h3 { margin-top: 0; color: #667eea; }
+        .status { 
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .status.ok { background: #27ae60; color: white; }
+        .status.error { background: #e74c3c; color: white; }
+        .status.pending { background: #f39c12; color: white; }
+        pre {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 12px;
+        }
+        .btn {
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        .btn:hover {
+            background: #5568d3;
+        }
+        .error-405 {
+            background: #fadbd8;
+            border: 2px solid #e74c3c;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 Test des Endpoints - Diagnostic HTTP 405</h1>
+    <p><strong>Instructions:</strong> Cliquez sur "Lancer tous les tests" et observez les résultats. Les requêtes qui provoquent l'erreur 405 seront affichées en rouge.</p>
+    
+    <button class="btn" onclick="runAllTests()">🚀 Lancer tous les tests</button>
+    <button class="btn" onclick="clearResults()">🗑️ Effacer les résultats</button>
+
+    <div id="results"></div>
+
+    <script>
+        const resultsDiv = document.getElementById('results');
+
+        function clearResults() {
+            resultsDiv.innerHTML = '';
+        }
+
+        function addTestCard(testName, status, message, details = null, responseData = null) {
+            const card = document.createElement('div');
+            card.className = `test-card ${status}`;
+            
+            let statusClass = 'pending';
+            let statusText = '⏳ En cours...';
+            if (status === 'success') {
+                statusClass = 'ok';
+                statusText = '✅ OK';
+            } else if (status === 'error') {
+                statusClass = 'error';
+                statusText = '❌ ERREUR';
+            }
+
+            let html = `
+                <h3>${testName} <span class="status ${statusClass}">${statusText}</span></h3>
+                <p>${message}</p>
+            `;
+
+            if (details) {
+                html += `<pre>${JSON.stringify(details, null, 2)}</pre>`;
+            }
+
+            if (responseData) {
+                html += `<pre>${JSON.stringify(responseData, null, 2)}</pre>`;
+            }
+
+            card.innerHTML = html;
+            resultsDiv.appendChild(card);
+            return card;
+        }
+
+        async function testEndpoint(name, url, method = 'GET', body = null) {
+            console.log(`🔬 Testing ${name}: ${method} ${url}`);
+            
+            const card = addTestCard(name, 'pending', `Test en cours: ${method} ${url}...`);
+
+            try {
+                const options = {
+                    method: method,
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    }
+                };
+
+                if (body && method !== 'GET') {
+                    options.body = body;
+                }
+
+                const response = await fetch(url, options);
+                
+                console.log(`📊 ${name} - Status: ${response.status} ${response.statusText}`);
+
+                // Cas spécial: Erreur 405
+                if (response.status === 405) {
+                    card.className = 'test-card error';
+                    card.innerHTML = `
+                        <h3>${name} <span class="status error">❌ ERREUR 405</span></h3>
+                        <div class="error-405">
+                            <h4>🚨 ERREUR HTTP 405 - Method Not Allowed</h4>
+                            <p><strong>URL:</strong> ${url}</p>
+                            <p><strong>Méthode:</strong> ${method}</p>
+                            <p><strong>Status:</strong> ${response.status} ${response.statusText}</p>
+                            <p><strong>Cause probable:</strong> Le serveur refuse la méthode HTTP ${method} pour cette URL.</p>
+                            <p><strong>Solution:</strong> Vérifier la configuration Apache ou le code PHP qui traite cette requête.</p>
+                        </div>
+                    `;
+                    return { success: false, status: 405 };
+                }
+
+                // Essayer de lire la réponse
+                const contentType = response.headers.get('content-type');
+                let data = null;
+
+                if (contentType && contentType.includes('application/json')) {
+                    data = await response.json();
+                } else {
+                    const text = await response.text();
+                    data = text.substring(0, 500); // Limiter l'affichage
+                }
+
+                if (response.ok) {
+                    card.className = 'test-card success';
+                    card.innerHTML = `
+                        <h3>${name} <span class="status ok">✅ OK</span></h3>
+                        <p><strong>Status:</strong> ${response.status} ${response.statusText}</p>
+                        <p><strong>URL:</strong> ${url}</p>
+                        <p><strong>Méthode:</strong> ${method}</p>
+                        <pre>${JSON.stringify(data, null, 2)}</pre>
+                    `;
+                    return { success: true, status: response.status, data };
+                } else {
+                    // Erreur mais pas 405
+                    card.className = 'test-card error';
+                    card.innerHTML = `
+                        <h3>${name} <span class="status error">❌ ${response.status}</span></h3>
+                        <p><strong>Status:</strong> ${response.status} ${response.statusText}</p>
+                        <p><strong>URL:</strong> ${url}</p>
+                        <p><strong>Méthode:</strong> ${method}</p>
+                        <p><strong>Note:</strong> Ce n'est pas une erreur 405, mais une autre erreur HTTP (normal si accès refusé, etc.)</p>
+                        <pre>${JSON.stringify(data, null, 2)}</pre>
+                    `;
+                    return { success: false, status: response.status, data };
+                }
+
+            } catch (error) {
+                console.error(`❌ ${name} - Erreur:`, error);
+                card.className = 'test-card error';
+                card.innerHTML = `
+                    <h3>${name} <span class="status error">❌ EXCEPTION</span></h3>
+                    <p><strong>Erreur:</strong> ${error.message}</p>
+                    <p><strong>URL:</strong> ${url}</p>
+                    <p><strong>Méthode:</strong> ${method}</p>
+                    <pre>${error.stack}</pre>
+                `;
+                return { success: false, error: error.message };
+            }
+        }
+
+        async function runAllTests() {
+            clearResults();
+            
+            console.log('%c🚀 DÉBUT DES TESTS', 'background: #667eea; color: white; font-size: 18px; padding: 10px;');
+
+            // Test 1: is_admin.php (GET)
+            await testEndpoint('Test 1: is_admin.php', 'is_admin.php', 'GET');
+
+            // Test 2: login.php (POST avec données)
+            await testEndpoint(
+                'Test 2: login.php', 
+                'login.php', 
+                'POST', 
+                'email=test@test.com&password=test123&role=user'
+            );
+
+            // Test 3: admin.php (GET)
+            await testEndpoint('Test 3: admin.php (list_users)', 'admin.php?action=list_users', 'GET');
+
+            // Test 4: admin.php (POST)
+            await testEndpoint(
+                'Test 4: admin.php (block_user)', 
+                'admin.php', 
+                'POST', 
+                'action=block_user&id=999'
+            );
+
+            // Test 5: traitement_trajet.php (POST)
+            await testEndpoint(
+                'Test 5: traitement_trajet.php', 
+                'traitement_trajet.php', 
+                'POST', 
+                'lieu_depart=Tunis&lieu_arrivee=Sfax&date_trajet=2025-12-01&heure_trajet=10:00&places_disponibles=3&prix=20&vehicule=Renault&description=Test'
+            );
+
+            // Test 6: Page HTML (GET) - devrait fonctionner
+            await testEndpoint('Test 6: index_one.html', 'index_one.html', 'GET');
+
+            // Test 7: Page HTML avec POST (devrait causer 405)
+            await testEndpoint('Test 7: index_one.html avec POST', 'index_one.html', 'POST', 'test=data');
+
+            console.log('%c✅ TESTS TERMINÉS', 'background: #27ae60; color: white; font-size: 16px; padding: 10px;');
+            console.log('%cSi vous voyez une erreur 405 ci-dessus, c\'est là que se trouve le problème!', 'color: #e74c3c; font-size: 14px; font-weight: bold;');
+        }
+
+        // Lancer automatiquement au chargement
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                console.log('🔄 Lancement automatique des tests dans 2 secondes...');
+                setTimeout(runAllTests, 2000);
+            }, 500);
+        });
+    </script>
+</body>
+</html>

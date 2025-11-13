@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketplace Covoiturage</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #87CEEB 0%, #ffffff 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a.active, .nav-menu a:focus {
+            color: #667eea;
+            font-weight: bold;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .nav-menu a:hover {
+            color: #667eea;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.6rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .btn-secondary:hover {
+            background: #e6e8ff;
+        }
+
+        .hero {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .search-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            margin: 2rem auto;
+            max-width: 800px;
+        }
+
+        .search-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            color: #333;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 0.8rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .btn-search {
+            grid-column: 1 / -1;
+            padding: 1rem;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+
+        .btn-search:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+        }
+
+        .trajets-container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .trajets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .trajet-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .trajet-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .trajet-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .trajet-route {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .location {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .arrow {
+            color: #667eea;
+            font-size: 1.2rem;
+        }
+
+        .trajet-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #666;
+        }
+
+        .icon {
+            color: #667eea;
+        }
+
+        .trajet-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 2px solid #f0f0f0;
+        }
+
+        .price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .btn-small {
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .badge-success {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .badge-warning {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .badge-danger {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .panier-icon {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .panier-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #e74c3c;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #999;
+        }
+
+        .footer {
+            background: white;
+            margin-top: 4rem;
+            padding: 2rem 0;
+            text-align: center;
+            color: #666;
+        }
+
+        .connexion-button {
+            margin-left: 10px; /* Ajuste l'espacement à gauche */
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .search-form {
+                grid-template-columns: 1fr;
+            }
+
+            .trajets-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+  <!-- Ajoute ceci dans ton <head> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- ✅ HEADER FINAL -->
+<header class="header">
+    <div class="nav-container">
+        <!-- Logo cliquable -->
+        <div class="logo" onclick="window.location.href='index_one.html'">🚗 CovoitPlus</div>
+
+        <!-- Navigation -->
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="/exsepareoffre/index_one.html">Accueil</a></li>
+                <li><a href="/exsepareoffre/Trajets.html">Trajets</a></li>
+                <li><a href="/exsepareoffre/publier.html">Publier un trajet</a></li>
+                <li><a href="/exsepareoffre/mesTrajets.html">Mes trajets</a></li>
+                <li id="adminMenuItem" style="display:none;"><a href="/exsepareoffre/admin_dashboard.html">Admin</a></li>
+            </ul>
+        </nav>
+
+        <!-- Authentification et Panier -->
+        <div class="auth-buttons">
+            <div class="panier-icon" onclick="showPanier()">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="panier-count" id="panierCount">0</span>
+            </div>
+            <button class="btn btn-secondary" onclick="showModal('login')">Connexion</button>
+            <button class="btn btn-primary" onclick="showModal('register')">Inscription</button>
+        </div>
+    </div>
+</header>
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Voyagez Ensemble, Économisez Plus</h1>
+        <p>Trouvez des covoiturages près de chez vous ou proposez vos trajets</p>
+        
+        <div class="search-card">
+            <form class="search-form" onsubmit="searchTrajets(event)">
+                <div class="form-group">
+                    <label>Départ</label>
+                    <input type="text" id="searchDepart" placeholder="Ville de départ" required>
+                </div>
+                <div class="form-group">
+                    <label>Arrivée</label>
+                    <input type="text" id="searchArrivee" placeholder="Ville d'arrivée" required>
+                </div>
+                <div class="form-group">
+                    <label>Date</label>
+                    <input type="date" id="searchDate" required>
+                </div>
+                <div class="form-group">
+                    <label>Passagers</label>
+                    <select id="searchPassagers">
+                        <option value="1">1 passager</option>
+                        <option value="2">2 passagers</option>
+                        <option value="3">3 passagers</option>
+                        <option value="4">4+ passagers</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-search">🔍 Rechercher</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Trajets disponibles -->
+    <section class="trajets-container">
+        <h2 class="section-title">Trajets Disponibles</h2>
+        <div class="trajets-grid" id="trajetsGrid">
+            <!-- Les trajets seront générés par JavaScript -->
+        </div>
+    </section>
+
+    <!-- Modal Inscription/Connexion -->
+    <div class="modal" id="authModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Connexion</h2>
+                <button class="close-modal" onclick="closeModal()">&times;</button>
+            </div>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- Modal Panier -->
+    <div class="modal" id="panierModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Mon Panier</h2>
+                <button class="close-modal" onclick="closeModal()">&times;</button>
+            </div>
+            <div id="panierContent"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 CovoitPlus - Tous droits réservés</p>
+    </footer>
+
+    <script>
+        // Met à jour le lien actif du menu selon la page courante
+        document.addEventListener('DOMContentLoaded', function() {
+            const path = window.location.pathname.split('/').pop();
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                if (link.getAttribute('href') === path) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        // Afficher le lien Admin si connecté en admin (vérification session via AJAX)
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('is_admin.php')
+                .then(r => r.json())
+                .then(data => {
+                    if (data.is_admin) {
+                        document.getElementById('adminMenuItem').style.display = '';
+                    }
+                });
+        });
+        // Données simulées
+        let trajets = [
+            {
+                id: 1,
+                depart: "Sfax",
+                arrivee: "Monastir",
+                date: "2025-10-15",
+                heure: "08:00",
+                places: 3,
+                prix: 15,
+                conducteur: "Salah merghi"
+            },
+            {
+                id: 2,
+                depart: "Tunisie",
+                arrivee: "Sousse",
+                date: "2025-10-16",
+                heure: "14:30",
+                places: 2,
+                prix: 15,
+                conducteur: "Mounir ben salah"
+            },
+            {
+                id: 3,
+                depart: "Qabes",
+                arrivee: "mednine",
+                date: "2025-10-17",
+                heure: "10:00",
+                places: 4,
+                prix: 20,
+                conducteur: "Monem Guesmi "
+            },
+            {
+                id: 4,
+                depart: "Hammamet",
+                arrivee: "Mahdia",
+                date: "2025-10-18",
+                heure: "07:00",
+                places: 1,
+                prix: 18,
+                conducteur: "Wiem Dridi"
+            }
+        ];
+
+        let panier = [];
+        let mesTrajets = [];
+
+
+        // Afficher les trajets
+        function displayTrajets(trajetsToDisplay = trajets) {
+            const grid = document.getElementById('trajetsGrid');
+            grid.innerHTML = '';
+
+            trajetsToDisplay.forEach(trajet => {
+                const badge = trajet.places > 2 ? 'badge-success' : trajet.places > 0 ? 'badge-warning' : 'badge-danger';
+                const badgeText = trajet.places > 2 ? 'Disponible' : trajet.places > 0 ? 'Places limitées' : 'Complet';
+
+                const card = `
+                    <div class="trajet-card">
+                        <div class="trajet-header">
+                            <span class="badge ${badge}">${badgeText}</span>
+                            <span>${trajet.conducteur}</span>
+                        </div>
+                        <div class="trajet-route">
+                            <span class="location">${trajet.depart}</span>
+                            <span class="arrow">→</span>
+                            <span class="location">${trajet.arrivee}</span>
+                        </div>
+                        <div class="trajet-details">
+                            <div class="detail-item">
+                                <span class="icon">📅</span>
+                                <span>${trajet.date}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="icon">🕐</span>
+                                <span>${trajet.heure}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="icon">👥</span>
+                                <span>${trajet.places} places</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="icon">💰</span>
+                                <span>${trajet.prix}DT / pers</span>
+                            </div>
+                        </div>
+                        <div class="trajet-footer">
+                            <span class="price">${trajet.prix}DT</span>
+                            <button class="btn btn-primary btn-small" onclick="ajouterAuPanier(${trajet.id})" ${trajet.places === 0 ? 'disabled' : ''}>
+                                Ajouter au panier
+                            </button>
+                        </div>
+                    </div>
+                `;
+                grid.insertAdjacentHTML('beforeend', card);
+            });
+        }
+
+        // Rechercher des trajets
+        function searchTrajets(event) {
+            event.preventDefault();
+            const depart = document.getElementById('searchDepart').value;
+            const arrivee = document.getElementById('searchArrivee').value;
+            const date = document.getElementById('searchDate').value;
+
+            // Afficher un message de chargement
+            document.getElementById('trajetsGrid').innerHTML = `
+                <div style="grid-column: 1/-1; text-align: center; padding: 2rem;">
+                    <p>🔍 Recherche en cours...</p>
+                </div>
+            `;
+
+            // Construire l'URL avec les paramètres
+            const params = new URLSearchParams();
+            if (depart) params.append('lieu_depart', depart);
+            if (arrivee) params.append('lieu_arrivee', arrivee);
+            if (date) params.append('date_trajet', date);
+
+            fetch('rechercher_trajets.php?' + params.toString())
+                .then(r => r.json())
+                .then(data => {
+                    if (data.success && data.trajets && data.trajets.length > 0) {
+                        // Formater les trajets pour displayTrajets
+                        const trajetsFormattes = data.trajets.map(t => ({
+                            id: t.id,
+                            depart: t.lieu_depart,
+                            arrivee: t.lieu_arrivee,
+                            date: t.date_trajet,
+                            heure: t.heure_trajet,
+                            places: t.places_disponibles,
+                            prix: t.prix,
+                            conducteur: t.nom + (t.prenom ? ' ' + t.prenom : ''),
+                            vehicule: t.vehicule,
+                            description: t.description
+                        }));
+                        displayTrajets(trajetsFormattes);
+                    } else {
+                        document.getElementById('trajetsGrid').innerHTML = `
+                            <div style="grid-column: 1/-1; text-align: center; color: white; padding: 2rem;">
+                                <h3>😔 Aucun trajet trouvé</h3>
+                                <p>Essayez avec d'autres critères de recherche</p>
+                            </div>
+                        `;
+                    }
+                })
+                .catch(error => {
+                    console.error('Search error:', error);
+                    document.getElementById('trajetsGrid').innerHTML = `
+                        <div style="grid-column: 1/-1; text-align: center; color: white; padding: 2rem;">
+                            <h3>❌ Erreur de recherche</h3>
+                            <p>Veuillez réessayer</p>
+                        </div>
+                    `;
+                });
+        }
+
+        // Réserver un trajet (remplace ajouterAuPanier)
+        function ajouterAuPanier(trajetId) {
+            // Demander le nombre de places
+            const nombrePlaces = prompt('Combien de places souhaitez-vous réserver ?', '1');
+            
+            if (!nombrePlaces || parseInt(nombrePlaces) <= 0) {
+                return;
+            }
+            
+            // Créer la réservation
+            fetch('creer_reservation.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: `trajet_id=${trajetId}&nombre_places=${nombrePlaces}`
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (data.success) {
+                    alert('✅ ' + data.message + '\nPrix total: ' + data.prix_total + ' DT');
+                    // Recharger les trajets pour mettre à jour les places disponibles
+                    chargerTrajetsDisponibles();
+                } else {
+                    alert('❌ ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Reservation error:', error);
+                alert('❌ Erreur lors de la réservation. Assurez-vous d\'être connecté.');
+            });
+        }
+
+        // Mettre à jour le compteur du panier
+        function updatePanierCount() {
+            document.getElementById('panierCount').textContent = panier.length;
+        }
+
+        // Afficher le panier
+        function showPanier() {
+            const modal = document.getElementById('panierModal');
+            const content = document.getElementById('panierContent');
+            
+            if (panier.length === 0) {
+                content.innerHTML = '<p style="text-align: center; color: #999;">Votre panier est vide</p>';
+            } else {
+                let total = 0;
+                let html = '<div style="display: flex; flex-direction: column; gap: 1rem;">';
+                
+                panier.forEach((trajet, index) => {
+                    total += trajet.prix;
+                    html += `
+                        <div style="border: 2px solid #f0f0f0; padding: 1rem; border-radius: 8px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <strong>${trajet.depart} → ${trajet.arrivee}</strong>
+                                    <div style="color: #666; font-size: 0.9rem; margin-top: 0.5rem;">
+                                        📅 ${trajet.date} à ${trajet.heure}
+                                    </div>
+                                </div>
+                                <div style="text-align: right;">
+                                    <div style="font-size: 1.2rem; font-weight: bold; color: #667eea;">${trajet.prix}€</div>
+                                    <button class="btn btn-secondary btn-small" onclick="retirerDuPanier(${index})" style="margin-top: 0.5rem;">Retirer</button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                html += `</div>
+                    <div style="margin-top: 2rem; padding-top: 1rem; border-top: 2px solid #f0f0f0;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <strong style="font-size: 1.2rem;">Total:</strong>
+                            <strong style="font-size: 1.5rem; color: #667eea;">${total}DT</strong>
+                        </div>
+                        <button class="btn btn-primary" style="width: 100%; padding: 1rem;" onclick="confirmerReservation()">
+                            Confirmer la réservation
+                        </button>
+                    </div>
+                `;
+                
+                content.innerHTML = html;
+            }
+            
+            modal.classList.add('active');
+        }
+
+        // Retirer du panier
+        function retirerDuPanier(index) {
+            panier.splice(index, 1);
+            updatePanierCount();
+            showPanier();
+        }
+
+        // Confirmer la réservation
+        function confirmerReservation() {
+            if (panier.length === 0) return;
+
+            // Décrémenter les places disponibles
+            panier.forEach(trajetPanier => {
+                const trajet = trajets.find(t => t.id === trajetPanier.id);
+                if (trajet) {
+                    trajet.places--;
+                }
+            });
+
+            alert(`✅ Réservation confirmée pour ${panier.length} trajet(s) !\n\nUn email de confirmation vous a été envoyé.`);
+            panier = [];
+            updatePanierCount();
+            closeModal();
+            displayTrajets();
+        }
+
+        // Afficher les modals
+        function showModal(type) {
+            const modal = document.getElementById('authModal');
+            const title = document.getElementById('modalTitle');
+            const body = document.getElementById('modalBody');
+
+            if (type === 'login') {
+                title.textContent = 'Connexion';
+                body.innerHTML = `
+                    <form onsubmit="handleLogin(event)">
+                        <div class="form-group" style="margin-bottom: 1rem;">
+                            <label>Email</label>
+                            <input type="email" id="loginEmail" required>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 1.5rem;">
+                            <label>Mot de passe</label>
+                            <input type="password" id="loginPassword" required>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 1.5rem;">
+                            <label>Se connecter en tant que :</label>
+                            <select id="loginRole" required>
+                                <option value="user">Utilisateur</option>
+                                <option value="admin">Administrateur</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Se connecter</button>
+                        <p style="text-align: center; margin-top: 1rem;">
+                            Pas encore de compte ? <a href="#" onclick="showModal('register')" style="color: #667eea;">S'inscrire</a>
+                        </p>
+                    </form>
+                `;
+            } else {
+                title.textContent = 'Inscription';
+                body.innerHTML = `
+                    <form onsubmit="handleRegister(event)">
+                        <div class="form-group" style="margin-bottom: 1rem;">
+                            <label>Nom *</label>
+                            <input type="text" id="registerNom" required>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 1rem;">
+                            <label>Prénom</label>
+                            <input type="text" id="registerPrenom">
+                        </div>
+                        <div class="form-group" style="margin-bottom: 1rem;">
+                            <label>Email *</label>
+                            <input type="email" id="registerEmail" required>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 1rem;">
+                            <label>Téléphone</label>
+                            <input type="tel" id="registerTelephone" placeholder="Ex: 0612345678">
+                        </div>
+                        <div class="form-group" style="margin-bottom: 1rem;">
+                            <label>Mot de passe * (min 6 caractères)</label>
+                            <input type="password" id="registerPassword" minlength="6" required>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 1.5rem;">
+                            <label>Confirmer mot de passe *</label>
+                            <input type="password" id="registerPasswordConfirm" minlength="6" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">S'inscrire</button>
+                        <p style="text-align: center; margin-top: 1rem;">
+                            Déjà un compte ? <a href="#" onclick="showModal('login')" style="color: #667eea;">Se connecter</a>
+                        </p>
+                    </form>
+                `;
+            }
+
+            modal.classList.add('active');
+        }
+
+        // Fermer les modals
+        function closeModal() {
+            document.querySelectorAll('.modal').forEach(modal => {
+                modal.classList.remove('active');
+            });
+        }
+
+        // Gérer la connexion
+        function handleLogin(event) {
+            event.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            const role = document.getElementById('loginRole').value;
+
+            fetch('login.php?t=' + Date.now(), {
+                method: 'POST',
+                headers: { 
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'Cache-Control': 'no-cache'
+                },
+                body: `email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}&role=${encodeURIComponent(role)}`
+            })
+            .then(r => {
+                console.log('Response status:', r.status);
+                console.log('Response headers:', r.headers);
+                return r.text().then(text => {
+                    console.log('Response text:', text);
+                    try {
+                        return JSON.parse(text);
+                    } catch(e) {
+                        console.error('JSON parse error:', e);
+                        console.error('Response was:', text);
+                        throw new Error('Réponse invalide du serveur: ' + text.substring(0, 100));
+                    }
+                });
+            })
+            .then(data => {
+                console.log('Parsed data:', data);
+                if (data.success) {
+                    closeModal();
+                    if (role === 'admin') {
+                        window.location.href = 'admin_dashboard.html';
+                    } else {
+                        alert('✅ Connexion réussie !');
+                        // Redirection ou rafraîchissement utilisateur normal si besoin
+                    }
+                } else {
+                    alert('❌ ' + (data.message || 'Identifiants ou rôle incorrects.'));
+                }
+            })
+            .catch((error) => {
+                console.error('Login error:', error);
+                alert('❌ Erreur serveur: ' + error.message);
+            });
+        }
+
+        // Gérer l'inscription
+        function handleRegister(event) {
+            event.preventDefault();
+            
+            const nom = document.getElementById('registerNom').value;
+            const prenom = document.getElementById('registerPrenom').value;
+            const email = document.getElementById('registerEmail').value;
+            const telephone = document.getElementById('registerTelephone').value;
+            const password = document.getElementById('registerPassword').value;
+            const password_confirm = document.getElementById('registerPasswordConfirm').value;
+            
+            // Validation côté client
+            if (password !== password_confirm) {
+                alert('❌ Les mots de passe ne correspondent pas');
+                return;
+            }
+            
+            fetch('register.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: `nom=${encodeURIComponent(nom)}&prenom=${encodeURIComponent(prenom)}&email=${encodeURIComponent(email)}&telephone=${encodeURIComponent(telephone)}&password=${encodeURIComponent(password)}&password_confirm=${encodeURIComponent(password_confirm)}`
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (data.success) {
+                    alert('✅ ' + data.message);
+                    closeModal();
+                    // Recharger pour afficher l'interface utilisateur connecté
+                    location.reload();
+                } else {
+                    alert('❌ ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Register error:', error);
+                alert('❌ Erreur lors de l\'inscription');
+            });
+        }
+
+        // Charger tous les trajets disponibles
+        function chargerTrajetsDisponibles() {
+            fetch('rechercher_trajets.php')
+                .then(r => r.json())
+                .then(data => {
+                    if (data.success && data.trajets) {
+                        const trajetsFormattes = data.trajets.map(t => ({
+                            id: t.id,
+                            depart: t.lieu_depart,
+                            arrivee: t.lieu_arrivee,
+                            date: t.date_trajet,
+                            heure: t.heure_trajet,
+                            places: t.places_disponibles,
+                            prix: t.prix,
+                            conducteur: t.nom + (t.prenom ? ' ' + t.prenom : ''),
+                            vehicule: t.vehicule,
+                            description: t.description
+                        }));
+                        displayTrajets(trajetsFormattes);
+                    }
+                })
+                .catch(error => console.error('Erreur chargement trajets:', error));
+        }
+
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', function() {
+            chargerTrajetsDisponibles();
+            updatePanierCount();
+            
+            // Définir la date minimum à aujourd'hui
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('searchDate').setAttribute('min', today);
+        });
+
+        // Fermer les modals en cliquant à l'extérieur
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>

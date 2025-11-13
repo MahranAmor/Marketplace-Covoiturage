@@ -1,0 +1,35 @@
+# Configuration pour autoriser toutes les méthodes HTTP
+# Correction de l'erreur HTTP 405
+
+# Autoriser les méthodes HTTP standard
+<Limit GET POST PUT DELETE HEAD OPTIONS>
+    Order allow,deny
+    Allow from all
+</Limit>
+
+# Désactiver les restrictions de méthodes HTTP
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+</IfModule>
+
+# Activer le rewrite engine si nécessaire
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Ne pas bloquer les requêtes POST/GET vers les fichiers PHP
+    RewriteCond %{REQUEST_METHOD} ^(GET|POST|PUT|DELETE|OPTIONS)$ [NC]
+    RewriteRule ^ - [L]
+</IfModule>
+
+# Configuration pour PHP
+<FilesMatch "\.php$">
+    SetHandler application/x-httpd-php
+</FilesMatch>
+
+# Autoriser l'accès aux fichiers HTML
+<FilesMatch "\.(html|htm)$">
+    <Limit GET POST>
+        Order allow,deny
+        Allow from all
+    </Limit>
+</FilesMatch>

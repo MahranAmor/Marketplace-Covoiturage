@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traqueur d'erreur 405</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .alert {
+            background: #e74c3c;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 18px;
+        }
+        .info {
+            background: #3498db;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .success {
+            background: #27ae60;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        pre {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+        .btn {
+            background: #667eea;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+        .btn:hover { background: #5568d3; }
+        h1 { color: #333; }
+        #requests { margin-top: 20px; }
+        .request {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 5px solid #667eea;
+        }
+        .request.error { border-left-color: #e74c3c; }
+        .request.success { border-left-color: #27ae60; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Traqueur d'erreur HTTP 405</h1>
+    
+    <div class="info">
+        <h3>📋 Instructions:</h3>
+        <p>Cette page intercepte TOUTES les requêtes HTTP et affiche celles qui renvoient une erreur 405.</p>
+        <p><strong>Ouvrez la console (F12)</strong> pour voir les détails en temps réel.</p>
+    </div>
+
+    <div id="requests"></div>
+
+    <script>
+        const requestsDiv = document.getElementById('requests');
+        const originalFetch = window.fetch;
+
+        // Intercepter toutes les requêtes fetch
+        window.fetch = async function(...args) {
+            const [url, options = {}] = args;
+            const method = options.method || 'GET';
+            const timestamp = new Date().toLocaleTimeString();
+
+            console.log(`%c[${timestamp}] REQUÊTE: ${method} ${url}`, 'color: #3498db; font-weight: bold');
+
+            try {
+                const response = await originalFetch(...args);
+                
+                if (response.status === 405) {
+                    const errorDiv = document.createElement('div');
+                    errorDiv.className = 'alert';
+                    errorDiv.innerHTML = `
+                        <h2>🚨 ERREUR 405 DÉTECTÉE!</h2>
+                        <p><strong>URL:</strong> ${url}</p>
+                        <p><strong>Méthode:</strong> ${method}</p>
+                        <p><strong>Status:</strong> ${response.status} ${response.statusText}</p>
+                        <p><strong>Heure:</strong> ${timestamp}</p>
+                        <pre>${JSON.stringify(options, null, 2)}</pre>
+                    `;
+                    requestsDiv.insertBefore(errorDiv, requestsDiv.firstChild);
+                    
+                    console.error(`%c🚨 ERREUR 405: ${method} ${url}`, 'background: #e74c3c; color: white; font-size: 16px; padding: 10px');
+                    console.error('Options:', options);
+                    console.error('Response:', response);
+                } else {
+                    const div = document.createElement('div');
+                    div.className = 'request ' + (response.ok ? 'success' : 'error');
+                    div.innerHTML = `
+                        <strong>[${timestamp}]</strong> ${method} ${url} → ${response.status} ${response.statusText}
+                    `;
+                    requestsDiv.insertBefore(div, requestsDiv.firstChild);
+                    
+                    console.log(`%c[${timestamp}] ✓ ${response.status} ${response.statusText}`, 'color: #27ae60');
+                }
+
+                return response;
+            } catch (error) {
+                console.error(`%c[${timestamp}] ✗ Exception:`, 'color: #e74c3c', error);
+                throw error;
+            }
+        };
+
+        // Intercepter aussi XMLHttpRequest (au cas où)
+        const originalXHROpen = XMLHttpRequest.prototype.open;
+        XMLHttpRequest.prototype.open = function(method, url, ...rest) {
+            this._requestMethod = method;
+            this._requestURL = url;
+            console.log(`%c[XHR] ${method} ${url}`, 'color: #9b59b6; font-weight: bold');
+            return originalXHROpen.call(this, method, url, ...rest);
+        };
+
+        const originalXHRSend = XMLHttpRequest.prototype.send;
+        XMLHttpRequest.prototype.send = function(...args) {
+            this.addEventListener('load', function() {
+                const timestamp = new Date().toLocaleTimeString();
+                if (this.status === 405) {
+                    const errorDiv = document.createElement('div');
+                    errorDiv.className = 'alert';
+                    errorDiv.innerHTML = `
+                        <h2>🚨 ERREUR 405 DÉTECTÉE (XHR)!</h2>
+                        <p><strong>URL:</strong> ${this._requestURL}</p>
+                        <p><strong>Méthode:</strong> ${this._requestMethod}</p>
+                        <p><strong>Status:</strong> ${this.status} ${this.statusText}</p>
+                        <p><strong>Heure:</strong> ${timestamp}</p>
+                    `;
+                    requestsDiv.insertBefore(errorDiv, requestsDiv.firstChild);
+                    console.error(`%c🚨 ERREUR 405 (XHR): ${this._requestMethod} ${this._requestURL}`, 'background: #e74c3c; color: white; font-size: 16px; padding: 10px');
+                }
+            });
+            return originalXHRSend.apply(this, args);
+        };
+
+        console.log('%c🔍 Traqueur d\'erreur 405 activé!', 'background: #667eea; color: white; font-size: 18px; padding: 10px');
+        console.log('%cToutes les requêtes HTTP sont maintenant surveillées.', 'color: #3498db; font-size: 14px');
+        console.log('%cSi une erreur 405 se produit, elle sera affichée en ROUGE ci-dessus et dans la console.', 'color: #e74c3c; font-size: 14px; font-weight: bold');
+    </script>
+
+    <div class="info" style="margin-top: 30px;">
+        <h3>🎯 Maintenant, testez votre application:</h3>
+        <button class="btn" onclick="window.open('index_one.html', '_blank')">Ouvrir index_one.html</button>
+        <button class="btn" onclick="window.open('publier.html', '_blank')">Ouvrir publier.html</button>
+        <button class="btn" onclick="window.open('admin_dashboard.html', '_blank')">Ouvrir admin_dashboard.html</button>
+        <p style="margin-top: 15px;">Faites l'action qui provoque l'erreur 405, puis revenez sur cette page pour voir les détails.</p>
+    </div>
+</body>
+</html>
