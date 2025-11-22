@@ -80,6 +80,8 @@ class Reservation {
             // Annuler la transaction en cas d'erreur
             $this->conn->rollBack();
             error_log("Erreur lors de la réservation : " . $e->getMessage());
+            error_log("Stack trace: " . $e->getTraceAsString());
+            error_log("Données: trajet_id={$this->trajet_id}, user_id={$this->utilisateur_id}, places={$this->nombre_places}");
             return false;
         }
     }

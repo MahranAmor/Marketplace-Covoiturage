@@ -30,11 +30,17 @@ try {
         exit;
     }
     
+    // LOG: Debug
+    error_log("DEBUG - user_id: " . $_SESSION['user_id'] . ", trajet_id: " . $trajet_id . ", places: " . $nombre_places);
+    
     // Vérifier que le trajet existe et récupérer son prix
     $query = "SELECT id, prix, places_disponibles, utilisateur_id FROM trajets WHERE id = ? AND statut IN ('actif', 'valide')";
     $stmt = $conn->prepare($query);
     $stmt->execute([$trajet_id]);
     $trajet = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+    // LOG: Trajet trouvé ou non
+    error_log("DEBUG - Trajet trouvé: " . ($trajet ? "OUI (utilisateur_id={$trajet['utilisateur_id']})" : "NON"));
     
     if (!$trajet) {
         echo json_encode(['success' => false, 'message' => 'Trajet introuvable ou non disponible']);

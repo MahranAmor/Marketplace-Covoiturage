@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Debug - Test Variables</title>
+</head>
+<body>
+    <h1>Test Debug</h1>
+    <div id="output"></div>
+    <button id="testBtn">Tester allTrajets</button>
+
+    <script>
+        // Charger exactement comme dans index_one.html
+        let allTrajets = [];
+        let panier = [];
+
+        function afficherDebug() {
+            const output = document.getElementById('output');
+            output.innerHTML = `
+                <pre>
+allTrajets défini ? ${typeof allTrajets}
+allTrajets.length ? ${allTrajets ? allTrajets.length : 'undefined'}
+Contenu : ${JSON.stringify(allTrajets, null, 2)}
+                </pre>
+            `;
+        }
+
+        function chargerTrajets() {
+            console.log('🔵 Chargement...');
+            fetch('rechercher_trajets.php')
+                .then(r => r.json())
+                .then(data => {
+                    console.log('📥 Données reçues:', data);
+                    if (data.success && data.trajets) {
+                        allTrajets = data.trajets.map(t => ({
+                            id: parseInt(t.id),
+                            depart: t.lieu_depart,
+                            arrivee: t.lieu_arrivee,
+                            prix: parseFloat(t.prix)
+                        }));
+                        console.log('✅ allTrajets chargé:', allTrajets);
+                        afficherDebug();
+                    }
+                })
+                .catch(err => console.error('❌ Erreur:', err));
+        }
+
+        document.getElementById('testBtn').addEventListener('click', afficherDebug);
+
+        // Charger au démarrage
+        document.addEventListener('DOMContentLoaded', function() {
+            chargerTrajets();
+            afficherDebug();
+        });
+    </script>
+</body>
+</html>

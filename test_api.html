@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Test API Réservation</title>
+    <style>
+        body { font-family: Arial; padding: 20px; background: #f5f5f5; }
+        .test { background: white; padding: 20px; margin: 10px 0; border-radius: 8px; }
+        button { padding: 10px 20px; margin: 5px; cursor: pointer; background: #667eea; color: white; border: none; border-radius: 5px; }
+        pre { background: #f0f0f0; padding: 10px; overflow-x: auto; }
+        .success { color: green; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Test API Réservation</h1>
+    
+    <div class="test">
+        <h2>Test 1: Charger les trajets</h2>
+        <button onclick="testChargerTrajets()">▶ Exécuter</button>
+        <pre id="result1">Cliquez sur Exécuter...</pre>
+    </div>
+    
+    <div class="test">
+        <h2>Test 2: Vérifier la session</h2>
+        <button onclick="testSession()">▶ Exécuter</button>
+        <pre id="result2">Cliquez sur Exécuter...</pre>
+    </div>
+    
+    <div class="test">
+        <h2>Test 3: Créer une réservation (trajet ID 1, 1 place)</h2>
+        <button onclick="testReservation()">▶ Exécuter</button>
+        <pre id="result3">Cliquez sur Exécuter...</pre>
+    </div>
+
+    <script>
+        async function testChargerTrajets() {
+            const result = document.getElementById('result1');
+            result.innerHTML = '⏳ Chargement...';
+            
+            try {
+                const response = await fetch('rechercher_trajets.php');
+                const data = await response.json();
+                
+                result.innerHTML = `<span class="success">✅ Succès!</span>\n\n`;
+                result.innerHTML += `Nombre de trajets: ${data.trajets ? data.trajets.length : 0}\n\n`;
+                result.innerHTML += `Données complètes:\n${JSON.stringify(data, null, 2)}`;
+                
+                if (data.trajets && data.trajets.length > 0) {
+                    result.innerHTML += `\n\n<span class="success">Premier trajet ID: ${data.trajets[0].id}</span>`;
+                }
+            } catch (error) {
+                result.innerHTML = `<span class="error">❌ Erreur: ${error.message}</span>`;
+            }
+        }
+
+        async function testSession() {
+            const result = document.getElementById('result2');
+            result.innerHTML = '⏳ Vérification...';
+            
+            try {
+                const response = await fetch('test_reservation.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: 'test=1'
+                });
+                const data = await response.json();
+                
+                result.innerHTML = `<span class="${data.session_user_id !== 'NON_CONNECTE' ? 'success' : 'error'}">`;
+                result.innerHTML += data.session_user_id !== 'NON_CONNECTE' ? '✅ Connecté' : '❌ Non connecté';
+                result.innerHTML += `</span>\n\n`;
+                result.innerHTML += `User ID: ${data.session_user_id}\n\n`;
+                result.innerHTML += `Données complètes:\n${JSON.stringify(data, null, 2)}`;
+            } catch (error) {
+                result.innerHTML = `<span class="error">❌ Erreur: ${error.message}</span>`;
+            }
+        }
+
+        async function testReservation() {
+            const result = document.getElementById('result3');
+            result.innerHTML = '⏳ Création de la réservation...';
+            
+            try {
+                const response = await fetch('creer_reservation.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: 'trajet_id=1&nombre_places=1'
+                });
+                const data = await response.json();
+                
+                result.innerHTML = `<span class="${data.success ? 'success' : 'error'}">`;
+                result.innerHTML += data.success ? '✅ Réservation réussie!' : '❌ Échec';
+                result.innerHTML += `</span>\n\n`;
+                result.innerHTML += `Message: ${data.message}\n\n`;
+                result.innerHTML += `Données complètes:\n${JSON.stringify(data, null, 2)}`;
+            } catch (error) {
+                result.innerHTML = `<span class="error">❌ Erreur: ${error.message}</span>`;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -506,3 +506,1402 @@
 2025-11-11T22:17:22+01:00 Session is_admin: false
 2025-11-11T22:17:22+01:00 Response sent
 === IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-13T15:52:36+01:00 METHOD: GET
+2025-11-13T15:52:36+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-13T15:52:36+01:00 Session is_admin: not set
+2025-11-13T15:52:36+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== LOGIN.PHP START ===
+2025-11-13T15:52:44+01:00 METHOD: POST
+2025-11-13T15:52:44+01:00 URI: /exsepareoffre/login.php?t=1763045564426
+2025-11-13T15:52:44+01:00 POST data: {"email":"test@test.com","password":"test123","role":"user"}
+2025-11-13T15:52:44+01:00 DB.php loaded
+2025-11-13T15:52:44+01:00 Email: test@test.com | Role: user
+2025-11-13T15:52:44+01:00 Validation OK - Connexion DB...
+2025-11-13T15:52:44+01:00 DB connected - Query user...
+2025-11-13T15:52:44+01:00 Query executed - Rows: 1
+2025-11-13T15:52:44+01:00 User found: test@test.com | Status: actif
+2025-11-13T15:52:44+01:00 Password OK - Session set
+2025-11-13T15:52:44+01:00 SUCCESS - Login OK
+=== LOGIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-13T15:52:47+01:00 METHOD: GET
+2025-11-13T15:52:47+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-13T15:52:47+01:00 Session is_admin: false
+2025-11-13T15:52:47+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-13T15:52:47+01:00 METHOD: GET
+2025-11-13T15:52:47+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-13T15:52:47+01:00 Session is_admin: false
+2025-11-13T15:52:47+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-13T15:52:49+01:00 METHOD: GET
+2025-11-13T15:52:49+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-13T15:52:49+01:00 Session is_admin: false
+2025-11-13T15:52:49+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:06:00+01:00 METHOD: GET
+2025-11-22T12:06:00+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:06:00+01:00 Session is_admin: not set
+2025-11-22T12:06:00+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:06:25+01:00 METHOD: GET
+2025-11-22T12:06:25+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:06:25+01:00 Session is_admin: not set
+2025-11-22T12:06:25+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:06:25+01:00 METHOD: GET
+2025-11-22T12:06:25+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:06:25+01:00 Session is_admin: not set
+2025-11-22T12:06:25+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:06:30+01:00 METHOD: GET
+2025-11-22T12:06:30+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:06:30+01:00 Session is_admin: not set
+2025-11-22T12:06:30+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== TRAITEMENT_TRAJET.PHP START ===
+2025-11-22T12:07:24+01:00 METHOD: POST
+2025-11-22T12:07:24+01:00 URI: /exsepareoffre/traitement_trajet.php
+2025-11-22T12:07:24+01:00 POST keys: utilisateur_id, lieu_depart, lieu_arrivee, date_trajet, heure_trajet, places_disponibles, prix, description, marque, modele, equipements, preferences
+2025-11-22T12:07:24+01:00 DB connected
+2025-11-22T12:07:24+01:00 POST request validated
+2025-11-22T12:07:24+01:00 POST fields: utilisateur_id, lieu_depart, lieu_arrivee, date_trajet, heure_trajet, places_disponibles, prix, description, marque, modele, equipements, preferences
+2025-11-22T12:07:24+01:00 All required fields present
+2025-11-22T12:07:24+01:00 ERROR: User not logged in
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:07:33+01:00 METHOD: GET
+2025-11-22T12:07:33+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:07:33+01:00 Session is_admin: not set
+2025-11-22T12:07:33+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== LOGIN.PHP START ===
+2025-11-22T12:07:40+01:00 METHOD: POST
+2025-11-22T12:07:40+01:00 URI: /exsepareoffre/login.php?t=1763809660480
+2025-11-22T12:07:40+01:00 POST data: {"email":"test@test.com","password":"test123","role":"user"}
+2025-11-22T12:07:40+01:00 DB.php loaded
+2025-11-22T12:07:40+01:00 Email: test@test.com | Role: user
+2025-11-22T12:07:40+01:00 Validation OK - Connexion DB...
+2025-11-22T12:07:40+01:00 DB connected - Query user...
+2025-11-22T12:07:40+01:00 Query executed - Rows: 1
+2025-11-22T12:07:40+01:00 User found: test@test.com | Status: actif
+2025-11-22T12:07:40+01:00 Password OK - Session set
+2025-11-22T12:07:40+01:00 SUCCESS - Login OK
+=== LOGIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:07:53+01:00 METHOD: GET
+2025-11-22T12:07:53+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:07:53+01:00 Session is_admin: false
+2025-11-22T12:07:53+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== TRAITEMENT_TRAJET.PHP START ===
+2025-11-22T12:08:25+01:00 METHOD: POST
+2025-11-22T12:08:25+01:00 URI: /exsepareoffre/traitement_trajet.php
+2025-11-22T12:08:25+01:00 POST keys: utilisateur_id, lieu_depart, lieu_arrivee, date_trajet, heure_trajet, places_disponibles, prix, description, marque, modele, equipements, preferences
+2025-11-22T12:08:25+01:00 DB connected
+2025-11-22T12:08:25+01:00 POST request validated
+2025-11-22T12:08:25+01:00 POST fields: utilisateur_id, lieu_depart, lieu_arrivee, date_trajet, heure_trajet, places_disponibles, prix, description, marque, modele, equipements, preferences
+2025-11-22T12:08:25+01:00 All required fields present
+2025-11-22T12:08:25+01:00 User ID from session: 2
+2025-11-22T12:08:25+01:00 Calling trajet->creer()...
+2025-11-22T12:08:25+01:00 SUCCESS: Trajet created
+=== TRAITEMENT_TRAJET.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:08:30+01:00 METHOD: GET
+2025-11-22T12:08:30+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:08:30+01:00 Session is_admin: false
+2025-11-22T12:08:30+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:10:35+01:00 METHOD: GET
+2025-11-22T12:10:35+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:10:35+01:00 Session is_admin: false
+2025-11-22T12:10:35+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:10:43+01:00 METHOD: GET
+2025-11-22T12:10:43+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:10:43+01:00 Session is_admin: false
+2025-11-22T12:10:43+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== LOGIN.PHP START ===
+2025-11-22T12:11:10+01:00 METHOD: POST
+2025-11-22T12:11:10+01:00 URI: /exsepareoffre/login.php?t=1763809870454
+2025-11-22T12:11:10+01:00 POST data: {"email":"admin@covoiturage.com","password":"admin123","role":"admin"}
+2025-11-22T12:11:10+01:00 DB.php loaded
+2025-11-22T12:11:10+01:00 Email: admin@covoiturage.com | Role: admin
+2025-11-22T12:11:10+01:00 Validation OK - Connexion DB...
+2025-11-22T12:11:10+01:00 DB connected - Query user...
+2025-11-22T12:11:10+01:00 Query executed - Rows: 1
+2025-11-22T12:11:10+01:00 User found: admin@covoiturage.com | Status: actif
+2025-11-22T12:11:10+01:00 Password OK - Session set
+2025-11-22T12:11:10+01:00 SUCCESS - Login OK
+=== LOGIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:11:10+01:00 METHOD: GET
+2025-11-22T12:11:10+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:11:10+01:00 Session is_admin: true
+2025-11-22T12:11:10+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== ADMIN.PHP START ===
+2025-11-22T12:11:10+01:00 METHOD: GET
+2025-11-22T12:11:10+01:00 URI: /exsepareoffre/admin.php?action=list_users
+2025-11-22T12:11:10+01:00 GET: {"action":"list_users"}
+2025-11-22T12:11:10+01:00 POST: []
+2025-11-22T12:11:10+01:00 Action requested: list_users
+2025-11-22T12:11:10+01:00 Processing: list_users
+2025-11-22T12:11:10+01:00 Users count: 2
+2025-11-22T12:11:10+01:00 Response sent
+=== ADMIN.PHP END ===
+
+=== ADMIN.PHP START ===
+2025-11-22T12:11:10+01:00 METHOD: GET
+2025-11-22T12:11:10+01:00 URI: /exsepareoffre/admin.php?action=list_offers
+2025-11-22T12:11:10+01:00 GET: {"action":"list_offers"}
+2025-11-22T12:11:10+01:00 POST: []
+2025-11-22T12:11:10+01:00 Action requested: list_offers
+2025-11-22T12:11:10+01:00 Processing: list_offers
+2025-11-22T12:11:10+01:00 Offers count: 5
+2025-11-22T12:11:10+01:00 Response sent
+=== ADMIN.PHP END ===
+
+=== ADMIN.PHP START ===
+2025-11-22T12:11:18+01:00 METHOD: POST
+2025-11-22T12:11:18+01:00 URI: /exsepareoffre/admin.php
+2025-11-22T12:11:18+01:00 GET: []
+2025-11-22T12:11:18+01:00 POST: {"action":"validate_offer","id":"5"}
+2025-11-22T12:11:18+01:00 Action requested: validate_offer
+2025-11-22T12:11:18+01:00 Processing: validate_offer ID=5
+2025-11-22T12:11:20+01:00 Response sent
+=== ADMIN.PHP END ===
+
+=== ADMIN.PHP START ===
+2025-11-22T12:11:30+01:00 METHOD: POST
+2025-11-22T12:11:30+01:00 URI: /exsepareoffre/admin.php
+2025-11-22T12:11:30+01:00 GET: []
+2025-11-22T12:11:30+01:00 POST: {"action":"validate_offer","id":"5"}
+2025-11-22T12:11:30+01:00 Action requested: validate_offer
+2025-11-22T12:11:30+01:00 Processing: validate_offer ID=5
+2025-11-22T12:11:32+01:00 Response sent
+=== ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:11:32+01:00 METHOD: GET
+2025-11-22T12:11:32+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:11:32+01:00 Session is_admin: true
+2025-11-22T12:11:32+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:12:26+01:00 METHOD: GET
+2025-11-22T12:12:26+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:12:26+01:00 Session is_admin: true
+2025-11-22T12:12:26+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:14:31+01:00 METHOD: GET
+2025-11-22T12:14:31+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:14:31+01:00 Session is_admin: true
+2025-11-22T12:14:31+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:17:28+01:00 METHOD: GET
+2025-11-22T12:17:28+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:17:28+01:00 Session is_admin: true
+2025-11-22T12:17:28+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== ADMIN.PHP START ===
+2025-11-22T12:17:28+01:00 METHOD: GET
+2025-11-22T12:17:28+01:00 URI: /exsepareoffre/admin.php?action=list_users
+2025-11-22T12:17:28+01:00 GET: {"action":"list_users"}
+2025-11-22T12:17:28+01:00 POST: []
+2025-11-22T12:17:28+01:00 Action requested: list_users
+2025-11-22T12:17:28+01:00 Processing: list_users
+2025-11-22T12:17:28+01:00 Users count: 2
+2025-11-22T12:17:28+01:00 Response sent
+=== ADMIN.PHP END ===
+
+=== ADMIN.PHP START ===
+2025-11-22T12:17:28+01:00 METHOD: GET
+2025-11-22T12:17:28+01:00 URI: /exsepareoffre/admin.php?action=list_offers
+2025-11-22T12:17:28+01:00 GET: {"action":"list_offers"}
+2025-11-22T12:17:28+01:00 POST: []
+2025-11-22T12:17:28+01:00 Action requested: list_offers
+2025-11-22T12:17:28+01:00 Processing: list_offers
+2025-11-22T12:17:28+01:00 Offers count: 5
+2025-11-22T12:17:28+01:00 Response sent
+=== ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:18:44+01:00 METHOD: GET
+2025-11-22T12:18:44+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:18:44+01:00 Session is_admin: true
+2025-11-22T12:18:44+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:18:55+01:00 METHOD: GET
+2025-11-22T12:18:55+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:18:55+01:00 Session is_admin: true
+2025-11-22T12:18:55+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== LOGIN.PHP START ===
+2025-11-22T12:18:59+01:00 METHOD: POST
+2025-11-22T12:18:59+01:00 URI: /exsepareoffre/login.php?t=1763810339080
+2025-11-22T12:18:59+01:00 POST data: {"email":"test@test.com","password":"test123","role":"user"}
+2025-11-22T12:18:59+01:00 DB.php loaded
+2025-11-22T12:18:59+01:00 Email: test@test.com | Role: user
+2025-11-22T12:18:59+01:00 Validation OK - Connexion DB...
+2025-11-22T12:18:59+01:00 DB connected - Query user...
+2025-11-22T12:18:59+01:00 Query executed - Rows: 1
+2025-11-22T12:18:59+01:00 User found: test@test.com | Status: actif
+2025-11-22T12:18:59+01:00 Password OK - Session set
+2025-11-22T12:18:59+01:00 SUCCESS - Login OK
+=== LOGIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:19:03+01:00 METHOD: GET
+2025-11-22T12:19:03+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:19:03+01:00 Session is_admin: false
+2025-11-22T12:19:03+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:19:12+01:00 METHOD: GET
+2025-11-22T12:19:12+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:19:12+01:00 Session is_admin: false
+2025-11-22T12:19:12+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:20:20+01:00 METHOD: GET
+2025-11-22T12:20:20+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:20:20+01:00 Session is_admin: false
+2025-11-22T12:20:20+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:20:43+01:00 METHOD: GET
+2025-11-22T12:20:43+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:20:43+01:00 Session is_admin: false
+2025-11-22T12:20:43+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:20:46+01:00 METHOD: GET
+2025-11-22T12:20:46+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:20:46+01:00 Session is_admin: false
+2025-11-22T12:20:46+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:20:47+01:00 METHOD: GET
+2025-11-22T12:20:47+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:20:47+01:00 Session is_admin: false
+2025-11-22T12:20:47+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:20:49+01:00 METHOD: GET
+2025-11-22T12:20:49+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:20:49+01:00 Session is_admin: false
+2025-11-22T12:20:49+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:21:25+01:00 METHOD: GET
+2025-11-22T12:21:25+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:21:25+01:00 Session is_admin: false
+2025-11-22T12:21:25+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== LOGIN.PHP START ===
+2025-11-22T12:21:40+01:00 METHOD: POST
+2025-11-22T12:21:40+01:00 URI: /exsepareoffre/login.php?t=1763810500647
+2025-11-22T12:21:40+01:00 POST data: {"email":"test@test.com","password":"test123","role":"user"}
+2025-11-22T12:21:40+01:00 DB.php loaded
+2025-11-22T12:21:40+01:00 Email: test@test.com | Role: user
+2025-11-22T12:21:40+01:00 Validation OK - Connexion DB...
+2025-11-22T12:21:40+01:00 DB connected - Query user...
+2025-11-22T12:21:40+01:00 Query executed - Rows: 1
+2025-11-22T12:21:40+01:00 User found: test@test.com | Status: actif
+2025-11-22T12:21:40+01:00 Password OK - Session set
+2025-11-22T12:21:40+01:00 SUCCESS - Login OK
+=== LOGIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:21:46+01:00 METHOD: GET
+2025-11-22T12:21:46+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:21:46+01:00 Session is_admin: false
+2025-11-22T12:21:46+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== TRAITEMENT_TRAJET.PHP START ===
+2025-11-22T12:22:48+01:00 METHOD: POST
+2025-11-22T12:22:48+01:00 URI: /exsepareoffre/traitement_trajet.php
+2025-11-22T12:22:48+01:00 POST keys: utilisateur_id, lieu_depart, lieu_arrivee, date_trajet, heure_trajet, places_disponibles, prix, description, marque, modele, equipements, preferences
+2025-11-22T12:22:48+01:00 DB connected
+2025-11-22T12:22:48+01:00 POST request validated
+2025-11-22T12:22:48+01:00 POST fields: utilisateur_id, lieu_depart, lieu_arrivee, date_trajet, heure_trajet, places_disponibles, prix, description, marque, modele, equipements, preferences
+2025-11-22T12:22:48+01:00 All required fields present
+2025-11-22T12:22:48+01:00 User ID from session: 2
+2025-11-22T12:22:48+01:00 Calling trajet->creer()...
+2025-11-22T12:22:48+01:00 SUCCESS: Trajet created
+=== TRAITEMENT_TRAJET.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:22:53+01:00 METHOD: GET
+2025-11-22T12:22:53+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:22:53+01:00 Session is_admin: false
+2025-11-22T12:22:53+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:23:11+01:00 METHOD: GET
+2025-11-22T12:23:11+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:23:11+01:00 Session is_admin: false
+2025-11-22T12:23:11+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== LOGIN.PHP START ===
+2025-11-22T12:23:36+01:00 METHOD: POST
+2025-11-22T12:23:36+01:00 URI: /exsepareoffre/login.php?t=1763810616895
+2025-11-22T12:23:36+01:00 POST data: {"email":"admin@covoiturage.com","password":"admin123","role":"admin"}
+2025-11-22T12:23:36+01:00 DB.php loaded
+2025-11-22T12:23:36+01:00 Email: admin@covoiturage.com | Role: admin
+2025-11-22T12:23:36+01:00 Validation OK - Connexion DB...
+2025-11-22T12:23:36+01:00 DB connected - Query user...
+2025-11-22T12:23:36+01:00 Query executed - Rows: 1
+2025-11-22T12:23:36+01:00 User found: admin@covoiturage.com | Status: actif
+2025-11-22T12:23:37+01:00 Password OK - Session set
+2025-11-22T12:23:37+01:00 SUCCESS - Login OK
+=== LOGIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:23:37+01:00 METHOD: GET
+2025-11-22T12:23:37+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:23:37+01:00 Session is_admin: true
+2025-11-22T12:23:37+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== ADMIN.PHP START ===
+2025-11-22T12:23:37+01:00 METHOD: GET
+2025-11-22T12:23:37+01:00 URI: /exsepareoffre/admin.php?action=list_users
+2025-11-22T12:23:37+01:00 GET: {"action":"list_users"}
+2025-11-22T12:23:37+01:00 POST: []
+2025-11-22T12:23:37+01:00 Action requested: list_users
+2025-11-22T12:23:37+01:00 Processing: list_users
+2025-11-22T12:23:37+01:00 Users count: 2
+2025-11-22T12:23:37+01:00 Response sent
+=== ADMIN.PHP END ===
+
+=== ADMIN.PHP START ===
+2025-11-22T12:23:37+01:00 METHOD: GET
+2025-11-22T12:23:37+01:00 URI: /exsepareoffre/admin.php?action=list_offers
+2025-11-22T12:23:37+01:00 GET: {"action":"list_offers"}
+2025-11-22T12:23:37+01:00 POST: []
+2025-11-22T12:23:37+01:00 Action requested: list_offers
+2025-11-22T12:23:37+01:00 Processing: list_offers
+2025-11-22T12:23:37+01:00 Offers count: 6
+2025-11-22T12:23:37+01:00 Response sent
+=== ADMIN.PHP END ===
+
+=== ADMIN.PHP START ===
+2025-11-22T12:23:47+01:00 METHOD: POST
+2025-11-22T12:23:47+01:00 URI: /exsepareoffre/admin.php
+2025-11-22T12:23:47+01:00 GET: []
+2025-11-22T12:23:47+01:00 POST: {"action":"validate_offer","id":"6"}
+2025-11-22T12:23:47+01:00 Action requested: validate_offer
+2025-11-22T12:23:47+01:00 Processing: validate_offer ID=6
+2025-11-22T12:23:49+01:00 Response sent
+=== ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:23:51+01:00 METHOD: GET
+2025-11-22T12:23:51+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:23:51+01:00 Session is_admin: true
+2025-11-22T12:23:51+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:23:53+01:00 METHOD: GET
+2025-11-22T12:23:53+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:23:53+01:00 Session is_admin: true
+2025-11-22T12:23:53+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:24:02+01:00 METHOD: GET
+2025-11-22T12:24:02+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:24:02+01:00 Session is_admin: true
+2025-11-22T12:24:02+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== ADMIN.PHP START ===
+2025-11-22T12:24:02+01:00 METHOD: GET
+2025-11-22T12:24:02+01:00 URI: /exsepareoffre/admin.php?action=list_users
+2025-11-22T12:24:02+01:00 GET: {"action":"list_users"}
+2025-11-22T12:24:02+01:00 POST: []
+2025-11-22T12:24:02+01:00 Action requested: list_users
+2025-11-22T12:24:02+01:00 Processing: list_users
+2025-11-22T12:24:02+01:00 Users count: 2
+2025-11-22T12:24:02+01:00 Response sent
+=== ADMIN.PHP END ===
+
+=== ADMIN.PHP START ===
+2025-11-22T12:24:02+01:00 METHOD: GET
+2025-11-22T12:24:02+01:00 URI: /exsepareoffre/admin.php?action=list_offers
+2025-11-22T12:24:02+01:00 GET: {"action":"list_offers"}
+2025-11-22T12:24:02+01:00 POST: []
+2025-11-22T12:24:02+01:00 Action requested: list_offers
+2025-11-22T12:24:02+01:00 Processing: list_offers
+2025-11-22T12:24:02+01:00 Offers count: 6
+2025-11-22T12:24:02+01:00 Response sent
+=== ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:31:12+01:00 METHOD: GET
+2025-11-22T12:31:12+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:31:12+01:00 Session is_admin: true
+2025-11-22T12:31:12+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== LOGIN.PHP START ===
+2025-11-22T12:31:16+01:00 METHOD: POST
+2025-11-22T12:31:16+01:00 URI: /exsepareoffre/login.php?t=1763811076990
+2025-11-22T12:31:16+01:00 POST data: {"email":"test@test.com","password":"test123","role":"user"}
+2025-11-22T12:31:17+01:00 DB.php loaded
+2025-11-22T12:31:17+01:00 Email: test@test.com | Role: user
+2025-11-22T12:31:17+01:00 Validation OK - Connexion DB...
+2025-11-22T12:31:17+01:00 DB connected - Query user...
+2025-11-22T12:31:17+01:00 Query executed - Rows: 1
+2025-11-22T12:31:17+01:00 User found: test@test.com | Status: actif
+2025-11-22T12:31:17+01:00 Password OK - Session set
+2025-11-22T12:31:17+01:00 SUCCESS - Login OK
+=== LOGIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:31:21+01:00 METHOD: GET
+2025-11-22T12:31:21+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:31:21+01:00 Session is_admin: false
+2025-11-22T12:31:21+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:32:28+01:00 METHOD: GET
+2025-11-22T12:32:28+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:32:28+01:00 Session is_admin: false
+2025-11-22T12:32:28+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:32:41+01:00 METHOD: GET
+2025-11-22T12:32:41+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:32:41+01:00 Session is_admin: false
+2025-11-22T12:32:41+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:33:29+01:00 METHOD: GET
+2025-11-22T12:33:29+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:33:29+01:00 Session is_admin: false
+2025-11-22T12:33:29+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:33:30+01:00 METHOD: GET
+2025-11-22T12:33:30+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:33:30+01:00 Session is_admin: false
+2025-11-22T12:33:30+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:33:30+01:00 METHOD: GET
+2025-11-22T12:33:30+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:33:30+01:00 Session is_admin: false
+2025-11-22T12:33:30+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:33:30+01:00 METHOD: GET
+2025-11-22T12:33:30+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:33:30+01:00 Session is_admin: false
+2025-11-22T12:33:30+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:33:30+01:00 METHOD: GET
+2025-11-22T12:33:30+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:33:30+01:00 Session is_admin: false
+2025-11-22T12:33:30+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:33:30+01:00 METHOD: GET
+2025-11-22T12:33:30+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:33:30+01:00 Session is_admin: false
+2025-11-22T12:33:30+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:33:31+01:00 METHOD: GET
+2025-11-22T12:33:31+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:33:31+01:00 Session is_admin: false
+2025-11-22T12:33:31+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== LOGIN.PHP START ===
+2025-11-22T12:33:37+01:00 METHOD: POST
+2025-11-22T12:33:37+01:00 URI: /exsepareoffre/login.php?t=1763811217325
+2025-11-22T12:33:37+01:00 POST data: {"email":"test@test.com","password":"test123","role":"user"}
+2025-11-22T12:33:37+01:00 DB.php loaded
+2025-11-22T12:33:37+01:00 Email: test@test.com | Role: user
+2025-11-22T12:33:37+01:00 Validation OK - Connexion DB...
+2025-11-22T12:33:37+01:00 DB connected - Query user...
+2025-11-22T12:33:37+01:00 Query executed - Rows: 1
+2025-11-22T12:33:37+01:00 User found: test@test.com | Status: actif
+2025-11-22T12:33:37+01:00 Password OK - Session set
+2025-11-22T12:33:37+01:00 SUCCESS - Login OK
+=== LOGIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:33:42+01:00 METHOD: GET
+2025-11-22T12:33:42+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:33:42+01:00 Session is_admin: false
+2025-11-22T12:33:42+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:33:55+01:00 METHOD: GET
+2025-11-22T12:33:55+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:33:55+01:00 Session is_admin: false
+2025-11-22T12:33:55+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:35:41+01:00 METHOD: GET
+2025-11-22T12:35:41+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:35:41+01:00 Session is_admin: not set
+2025-11-22T12:35:41+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== LOGIN.PHP START ===
+2025-11-22T12:35:48+01:00 METHOD: POST
+2025-11-22T12:35:48+01:00 URI: /exsepareoffre/login.php?t=1763811348058
+2025-11-22T12:35:48+01:00 POST data: {"email":"test@test.com","password":"test123","role":"user"}
+2025-11-22T12:35:48+01:00 DB.php loaded
+2025-11-22T12:35:48+01:00 Email: test@test.com | Role: user
+2025-11-22T12:35:48+01:00 Validation OK - Connexion DB...
+2025-11-22T12:35:48+01:00 DB connected - Query user...
+2025-11-22T12:35:48+01:00 Query executed - Rows: 1
+2025-11-22T12:35:48+01:00 User found: test@test.com | Status: actif
+2025-11-22T12:35:48+01:00 Password OK - Session set
+2025-11-22T12:35:48+01:00 SUCCESS - Login OK
+=== LOGIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:35:54+01:00 METHOD: GET
+2025-11-22T12:35:54+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:35:54+01:00 Session is_admin: false
+2025-11-22T12:35:54+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:36:54+01:00 METHOD: GET
+2025-11-22T12:36:54+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:36:54+01:00 Session is_admin: false
+2025-11-22T12:36:54+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== LOGIN.PHP START ===
+2025-11-22T12:37:00+01:00 METHOD: POST
+2025-11-22T12:37:00+01:00 URI: /exsepareoffre/login.php?t=1763811420759
+2025-11-22T12:37:00+01:00 POST data: {"email":"test@test.com","password":"test123","role":"user"}
+2025-11-22T12:37:00+01:00 DB.php loaded
+2025-11-22T12:37:00+01:00 Email: test@test.com | Role: user
+2025-11-22T12:37:00+01:00 Validation OK - Connexion DB...
+2025-11-22T12:37:00+01:00 DB connected - Query user...
+2025-11-22T12:37:00+01:00 Query executed - Rows: 1
+2025-11-22T12:37:00+01:00 User found: test@test.com | Status: actif
+2025-11-22T12:37:00+01:00 Password OK - Session set
+2025-11-22T12:37:00+01:00 SUCCESS - Login OK
+=== LOGIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:37:04+01:00 METHOD: GET
+2025-11-22T12:37:04+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:37:04+01:00 Session is_admin: false
+2025-11-22T12:37:04+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:42:17+01:00 METHOD: GET
+2025-11-22T12:42:17+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:42:17+01:00 Session is_admin: false
+2025-11-22T12:42:17+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:42:18+01:00 METHOD: GET
+2025-11-22T12:42:18+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:42:18+01:00 Session is_admin: false
+2025-11-22T12:42:18+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:42:52+01:00 METHOD: GET
+2025-11-22T12:42:52+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:42:52+01:00 Session is_admin: false
+2025-11-22T12:42:52+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== LOGIN.PHP START ===
+2025-11-22T12:42:57+01:00 METHOD: POST
+2025-11-22T12:42:57+01:00 URI: /exsepareoffre/login.php?t=1763811777019
+2025-11-22T12:42:57+01:00 POST data: {"email":"test@test.com","password":"test123","role":"user"}
+2025-11-22T12:42:57+01:00 DB.php loaded
+2025-11-22T12:42:57+01:00 Email: test@test.com | Role: user
+2025-11-22T12:42:57+01:00 Validation OK - Connexion DB...
+2025-11-22T12:42:57+01:00 DB connected - Query user...
+2025-11-22T12:42:57+01:00 Query executed - Rows: 1
+2025-11-22T12:42:57+01:00 User found: test@test.com | Status: actif
+2025-11-22T12:42:57+01:00 Password OK - Session set
+2025-11-22T12:42:57+01:00 SUCCESS - Login OK
+=== LOGIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:43:07+01:00 METHOD: GET
+2025-11-22T12:43:07+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:43:07+01:00 Session is_admin: false
+2025-11-22T12:43:07+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:44:26+01:00 METHOD: GET
+2025-11-22T12:44:26+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:44:26+01:00 Session is_admin: false
+2025-11-22T12:44:26+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:44:31+01:00 METHOD: GET
+2025-11-22T12:44:31+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:44:31+01:00 Session is_admin: false
+2025-11-22T12:44:31+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== LOGIN.PHP START ===
+2025-11-22T12:44:35+01:00 METHOD: POST
+2025-11-22T12:44:35+01:00 URI: /exsepareoffre/login.php?t=1763811875301
+2025-11-22T12:44:35+01:00 POST data: {"email":"test@test.com","password":"test123","role":"user"}
+2025-11-22T12:44:35+01:00 DB.php loaded
+2025-11-22T12:44:35+01:00 Email: test@test.com | Role: user
+2025-11-22T12:44:35+01:00 Validation OK - Connexion DB...
+2025-11-22T12:44:35+01:00 DB connected - Query user...
+2025-11-22T12:44:35+01:00 Query executed - Rows: 1
+2025-11-22T12:44:35+01:00 User found: test@test.com | Status: actif
+2025-11-22T12:44:35+01:00 Password OK - Session set
+2025-11-22T12:44:35+01:00 SUCCESS - Login OK
+=== LOGIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T12:44:37+01:00 METHOD: GET
+2025-11-22T12:44:37+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T12:44:37+01:00 Session is_admin: false
+2025-11-22T12:44:37+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T16:06:39+01:00 METHOD: GET
+2025-11-22T16:06:39+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T16:06:39+01:00 Session is_admin: not set
+2025-11-22T16:06:39+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T16:06:43+01:00 METHOD: GET
+2025-11-22T16:06:43+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T16:06:43+01:00 Session is_admin: not set
+2025-11-22T16:06:43+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T16:06:44+01:00 METHOD: GET
+2025-11-22T16:06:44+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T16:06:44+01:00 Session is_admin: not set
+2025-11-22T16:06:44+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T16:11:44+01:00 METHOD: GET
+2025-11-22T16:11:44+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T16:11:44+01:00 Session is_admin: not set
+2025-11-22T16:11:44+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T16:11:46+01:00 METHOD: GET
+2025-11-22T16:11:46+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T16:11:46+01:00 Session is_admin: not set
+2025-11-22T16:11:46+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T16:12:11+01:00 METHOD: GET
+2025-11-22T16:12:11+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T16:12:11+01:00 Session is_admin: not set
+2025-11-22T16:12:11+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== LOGIN.PHP START ===
+2025-11-22T16:12:15+01:00 METHOD: POST
+2025-11-22T16:12:15+01:00 URI: /exsepareoffre/login.php?t=1763824335216
+2025-11-22T16:12:15+01:00 POST data: {"email":"test@test.com","password":"test123","role":"user"}
+2025-11-22T16:12:15+01:00 DB.php loaded
+2025-11-22T16:12:15+01:00 Email: test@test.com | Role: user
+2025-11-22T16:12:15+01:00 Validation OK - Connexion DB...
+2025-11-22T16:12:15+01:00 DB connected - Query user...
+2025-11-22T16:12:15+01:00 Query executed - Rows: 1
+2025-11-22T16:12:15+01:00 User found: test@test.com | Status: actif
+2025-11-22T16:12:15+01:00 Password OK - Session set
+2025-11-22T16:12:15+01:00 SUCCESS - Login OK
+=== LOGIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T16:12:19+01:00 METHOD: GET
+2025-11-22T16:12:19+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T16:12:19+01:00 Session is_admin: false
+2025-11-22T16:12:19+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T16:18:20+01:00 METHOD: GET
+2025-11-22T16:18:20+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T16:18:20+01:00 Session is_admin: false
+2025-11-22T16:18:20+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T16:21:56+01:00 METHOD: GET
+2025-11-22T16:21:56+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T16:21:56+01:00 Session is_admin: false
+2025-11-22T16:21:56+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== LOGIN.PHP START ===
+2025-11-22T16:22:15+01:00 METHOD: POST
+2025-11-22T16:22:15+01:00 URI: /exsepareoffre/login.php?t=1763824935405
+2025-11-22T16:22:15+01:00 POST data: {"email":"mahran@mahran.com","password":"mahran123","role":"user"}
+2025-11-22T16:22:15+01:00 DB.php loaded
+2025-11-22T16:22:15+01:00 Email: mahran@mahran.com | Role: user
+2025-11-22T16:22:15+01:00 Validation OK - Connexion DB...
+2025-11-22T16:22:15+01:00 DB connected - Query user...
+2025-11-22T16:22:15+01:00 Query executed - Rows: 1
+2025-11-22T16:22:15+01:00 User found: mahran@mahran.com | Status: actif
+2025-11-22T16:22:15+01:00 Password OK - Session set
+2025-11-22T16:22:15+01:00 SUCCESS - Login OK
+=== LOGIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T16:22:18+01:00 METHOD: GET
+2025-11-22T16:22:18+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T16:22:18+01:00 Session is_admin: false
+2025-11-22T16:22:18+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T16:44:56+01:00 METHOD: GET
+2025-11-22T16:44:56+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T16:44:56+01:00 Session is_admin: false
+2025-11-22T16:44:56+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T16:44:57+01:00 METHOD: GET
+2025-11-22T16:44:57+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T16:44:57+01:00 Session is_admin: false
+2025-11-22T16:44:57+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T16:44:57+01:00 METHOD: GET
+2025-11-22T16:44:57+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T16:44:57+01:00 Session is_admin: false
+2025-11-22T16:44:57+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T16:44:57+01:00 METHOD: GET
+2025-11-22T16:44:57+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T16:44:57+01:00 Session is_admin: false
+2025-11-22T16:44:57+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T16:44:57+01:00 METHOD: GET
+2025-11-22T16:44:57+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T16:44:57+01:00 Session is_admin: false
+2025-11-22T16:44:57+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T16:45:01+01:00 METHOD: GET
+2025-11-22T16:45:01+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T16:45:01+01:00 Session is_admin: false
+2025-11-22T16:45:01+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== LOGIN.PHP START ===
+2025-11-22T16:45:19+01:00 METHOD: POST
+2025-11-22T16:45:19+01:00 URI: /exsepareoffre/login.php?t=1763826319469
+2025-11-22T16:45:19+01:00 POST data: {"email":"mahran@mahran.com","password":"mahran123","role":"user"}
+2025-11-22T16:45:19+01:00 DB.php loaded
+2025-11-22T16:45:19+01:00 Email: mahran@mahran.com | Role: user
+2025-11-22T16:45:19+01:00 Validation OK - Connexion DB...
+2025-11-22T16:45:19+01:00 DB connected - Query user...
+2025-11-22T16:45:19+01:00 Query executed - Rows: 1
+2025-11-22T16:45:19+01:00 User found: mahran@mahran.com | Status: actif
+2025-11-22T16:45:19+01:00 Password OK - Session set
+2025-11-22T16:45:19+01:00 SUCCESS - Login OK
+=== LOGIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T16:45:23+01:00 METHOD: GET
+2025-11-22T16:45:23+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T16:45:23+01:00 Session is_admin: false
+2025-11-22T16:45:23+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T16:48:09+01:00 METHOD: GET
+2025-11-22T16:48:09+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T16:48:09+01:00 Session is_admin: false
+2025-11-22T16:48:09+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== LOGIN.PHP START ===
+2025-11-22T16:48:27+01:00 METHOD: POST
+2025-11-22T16:48:27+01:00 URI: /exsepareoffre/login.php?t=1763826506993
+2025-11-22T16:48:27+01:00 POST data: {"email":"admin@admin.com","password":"admin123","role":"admin"}
+2025-11-22T16:48:27+01:00 DB.php loaded
+2025-11-22T16:48:27+01:00 Email: admin@admin.com | Role: admin
+2025-11-22T16:48:27+01:00 Validation OK - Connexion DB...
+2025-11-22T16:48:27+01:00 DB connected - Query user...
+2025-11-22T16:48:27+01:00 Query executed - Rows: 0
+2025-11-22T16:48:27+01:00 ERROR: Email not found
+
+=== LOGIN.PHP START ===
+2025-11-22T16:48:44+01:00 METHOD: POST
+2025-11-22T16:48:44+01:00 URI: /exsepareoffre/login.php?t=1763826524406
+2025-11-22T16:48:44+01:00 POST data: {"email":"admin@admin.com","password":"admin123","role":"admin"}
+2025-11-22T16:48:44+01:00 DB.php loaded
+2025-11-22T16:48:44+01:00 Email: admin@admin.com | Role: admin
+2025-11-22T16:48:44+01:00 Validation OK - Connexion DB...
+2025-11-22T16:48:44+01:00 DB connected - Query user...
+2025-11-22T16:48:44+01:00 Query executed - Rows: 0
+2025-11-22T16:48:44+01:00 ERROR: Email not found
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T16:49:20+01:00 METHOD: GET
+2025-11-22T16:49:20+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T16:49:20+01:00 Session is_admin: false
+2025-11-22T16:49:20+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== LOGIN.PHP START ===
+2025-11-22T16:49:46+01:00 METHOD: POST
+2025-11-22T16:49:46+01:00 URI: /exsepareoffre/login.php?t=1763826586618
+2025-11-22T16:49:46+01:00 POST data: {"email":"admin@covoiturage.com","password":"admin123","role":"admin"}
+2025-11-22T16:49:46+01:00 DB.php loaded
+2025-11-22T16:49:46+01:00 Email: admin@covoiturage.com | Role: admin
+2025-11-22T16:49:46+01:00 Validation OK - Connexion DB...
+2025-11-22T16:49:46+01:00 DB connected - Query user...
+2025-11-22T16:49:46+01:00 Query executed - Rows: 1
+2025-11-22T16:49:46+01:00 User found: admin@covoiturage.com | Status: actif
+2025-11-22T16:49:46+01:00 Password OK - Session set
+2025-11-22T16:49:46+01:00 SUCCESS - Login OK
+=== LOGIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T16:49:46+01:00 METHOD: GET
+2025-11-22T16:49:46+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T16:49:46+01:00 Session is_admin: true
+2025-11-22T16:49:46+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== ADMIN.PHP START ===
+2025-11-22T16:49:46+01:00 METHOD: GET
+2025-11-22T16:49:46+01:00 URI: /exsepareoffre/admin.php?action=list_users
+2025-11-22T16:49:46+01:00 GET: {"action":"list_users"}
+2025-11-22T16:49:46+01:00 POST: []
+2025-11-22T16:49:46+01:00 Action requested: list_users
+2025-11-22T16:49:46+01:00 Processing: list_users
+2025-11-22T16:49:46+01:00 Users count: 3
+2025-11-22T16:49:46+01:00 Response sent
+=== ADMIN.PHP END ===
+
+=== ADMIN.PHP START ===
+2025-11-22T16:49:46+01:00 METHOD: GET
+2025-11-22T16:49:46+01:00 URI: /exsepareoffre/admin.php?action=list_offers
+2025-11-22T16:49:46+01:00 GET: {"action":"list_offers"}
+2025-11-22T16:49:46+01:00 POST: []
+2025-11-22T16:49:46+01:00 Action requested: list_offers
+2025-11-22T16:49:46+01:00 Processing: list_offers
+2025-11-22T16:49:46+01:00 Offers count: 6
+2025-11-22T16:49:46+01:00 Response sent
+=== ADMIN.PHP END ===
+
+=== ADMIN.PHP START ===
+2025-11-22T16:49:55+01:00 METHOD: POST
+2025-11-22T16:49:55+01:00 URI: /exsepareoffre/admin.php
+2025-11-22T16:49:55+01:00 GET: []
+2025-11-22T16:49:55+01:00 POST: {"action":"validate_offer","id":"1"}
+2025-11-22T16:49:55+01:00 Action requested: validate_offer
+2025-11-22T16:49:55+01:00 Processing: validate_offer ID=1
+2025-11-22T16:49:57+01:00 Response sent
+=== ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T16:49:58+01:00 METHOD: GET
+2025-11-22T16:49:58+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T16:49:58+01:00 Session is_admin: true
+2025-11-22T16:49:58+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T16:55:54+01:00 METHOD: GET
+2025-11-22T16:55:54+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T16:55:54+01:00 Session is_admin: true
+2025-11-22T16:55:54+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T16:56:17+01:00 METHOD: GET
+2025-11-22T16:56:17+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T16:56:17+01:00 Session is_admin: true
+2025-11-22T16:56:17+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== LOGIN.PHP START ===
+2025-11-22T16:56:35+01:00 METHOD: POST
+2025-11-22T16:56:35+01:00 URI: /exsepareoffre/login.php?t=1763826995633
+2025-11-22T16:56:35+01:00 POST data: {"email":"mahran@mahran.com","password":"mahran123","role":"user"}
+2025-11-22T16:56:35+01:00 DB.php loaded
+2025-11-22T16:56:35+01:00 Email: mahran@mahran.com | Role: user
+2025-11-22T16:56:35+01:00 Validation OK - Connexion DB...
+2025-11-22T16:56:35+01:00 DB connected - Query user...
+2025-11-22T16:56:35+01:00 Query executed - Rows: 1
+2025-11-22T16:56:35+01:00 User found: mahran@mahran.com | Status: actif
+2025-11-22T16:56:35+01:00 Password OK - Session set
+2025-11-22T16:56:35+01:00 SUCCESS - Login OK
+=== LOGIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T16:56:38+01:00 METHOD: GET
+2025-11-22T16:56:38+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T16:56:38+01:00 Session is_admin: false
+2025-11-22T16:56:38+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T16:58:19+01:00 METHOD: GET
+2025-11-22T16:58:19+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T16:58:19+01:00 Session is_admin: not set
+2025-11-22T16:58:19+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T16:58:20+01:00 METHOD: GET
+2025-11-22T16:58:20+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T16:58:20+01:00 Session is_admin: not set
+2025-11-22T16:58:20+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== LOGIN.PHP START ===
+2025-11-22T16:58:24+01:00 METHOD: POST
+2025-11-22T16:58:24+01:00 URI: /exsepareoffre/login.php?t=1763827104101
+2025-11-22T16:58:24+01:00 POST data: {"email":"test@test.com","password":"test123","role":"user"}
+2025-11-22T16:58:24+01:00 DB.php loaded
+2025-11-22T16:58:24+01:00 Email: test@test.com | Role: user
+2025-11-22T16:58:24+01:00 Validation OK - Connexion DB...
+2025-11-22T16:58:24+01:00 DB connected - Query user...
+2025-11-22T16:58:24+01:00 Query executed - Rows: 1
+2025-11-22T16:58:24+01:00 User found: test@test.com | Status: actif
+2025-11-22T16:58:24+01:00 Password OK - Session set
+2025-11-22T16:58:24+01:00 SUCCESS - Login OK
+=== LOGIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T16:58:29+01:00 METHOD: GET
+2025-11-22T16:58:29+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T16:58:29+01:00 Session is_admin: false
+2025-11-22T16:58:29+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T16:58:34+01:00 METHOD: GET
+2025-11-22T16:58:34+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T16:58:34+01:00 Session is_admin: false
+2025-11-22T16:58:34+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== LOGIN.PHP START ===
+2025-11-22T16:58:56+01:00 METHOD: POST
+2025-11-22T16:58:56+01:00 URI: /exsepareoffre/login.php?t=1763827136859
+2025-11-22T16:58:56+01:00 POST data: {"email":"mahran@mahran.com","password":"mahran123","role":"user"}
+2025-11-22T16:58:56+01:00 DB.php loaded
+2025-11-22T16:58:56+01:00 Email: mahran@mahran.com | Role: user
+2025-11-22T16:58:56+01:00 Validation OK - Connexion DB...
+2025-11-22T16:58:56+01:00 DB connected - Query user...
+2025-11-22T16:58:56+01:00 Query executed - Rows: 1
+2025-11-22T16:58:56+01:00 User found: mahran@mahran.com | Status: actif
+2025-11-22T16:58:56+01:00 Password OK - Session set
+2025-11-22T16:58:56+01:00 SUCCESS - Login OK
+=== LOGIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T16:59:02+01:00 METHOD: GET
+2025-11-22T16:59:02+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T16:59:02+01:00 Session is_admin: false
+2025-11-22T16:59:02+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T16:59:32+01:00 METHOD: GET
+2025-11-22T16:59:32+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T16:59:32+01:00 Session is_admin: false
+2025-11-22T16:59:32+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T17:01:06+01:00 METHOD: GET
+2025-11-22T17:01:06+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T17:01:06+01:00 Session is_admin: false
+2025-11-22T17:01:06+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== LOGIN.PHP START ===
+2025-11-22T17:01:26+01:00 METHOD: POST
+2025-11-22T17:01:26+01:00 URI: /exsepareoffre/login.php?t=1763827286312
+2025-11-22T17:01:26+01:00 POST data: {"email":"mahran@mahran.com","password":"mahran123","role":"user"}
+2025-11-22T17:01:26+01:00 DB.php loaded
+2025-11-22T17:01:26+01:00 Email: mahran@mahran.com | Role: user
+2025-11-22T17:01:26+01:00 Validation OK - Connexion DB...
+2025-11-22T17:01:26+01:00 DB connected - Query user...
+2025-11-22T17:01:26+01:00 Query executed - Rows: 1
+2025-11-22T17:01:26+01:00 User found: mahran@mahran.com | Status: actif
+2025-11-22T17:01:26+01:00 Password OK - Session set
+2025-11-22T17:01:26+01:00 SUCCESS - Login OK
+=== LOGIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T17:01:35+01:00 METHOD: GET
+2025-11-22T17:01:35+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T17:01:35+01:00 Session is_admin: false
+2025-11-22T17:01:35+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T17:01:41+01:00 METHOD: GET
+2025-11-22T17:01:41+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T17:01:41+01:00 Session is_admin: false
+2025-11-22T17:01:41+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T17:03:31+01:00 METHOD: GET
+2025-11-22T17:03:31+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T17:03:31+01:00 Session is_admin: false
+2025-11-22T17:03:31+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== LOGIN.PHP START ===
+2025-11-22T17:03:34+01:00 METHOD: POST
+2025-11-22T17:03:34+01:00 URI: /exsepareoffre/login.php?t=1763827414761
+2025-11-22T17:03:34+01:00 POST data: {"email":"mahran@mahran.com","password":"mahran123","role":"user"}
+2025-11-22T17:03:34+01:00 DB.php loaded
+2025-11-22T17:03:34+01:00 Email: mahran@mahran.com | Role: user
+2025-11-22T17:03:34+01:00 Validation OK - Connexion DB...
+2025-11-22T17:03:34+01:00 DB connected - Query user...
+2025-11-22T17:03:34+01:00 Query executed - Rows: 1
+2025-11-22T17:03:34+01:00 User found: mahran@mahran.com | Status: actif
+2025-11-22T17:03:34+01:00 Password OK - Session set
+2025-11-22T17:03:34+01:00 SUCCESS - Login OK
+=== LOGIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T17:03:39+01:00 METHOD: GET
+2025-11-22T17:03:39+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T17:03:39+01:00 Session is_admin: false
+2025-11-22T17:03:39+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T17:07:36+01:00 METHOD: GET
+2025-11-22T17:07:36+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T17:07:36+01:00 Session is_admin: false
+2025-11-22T17:07:36+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T17:07:58+01:00 METHOD: GET
+2025-11-22T17:07:58+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T17:07:58+01:00 Session is_admin: false
+2025-11-22T17:07:58+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== LOGIN.PHP START ===
+2025-11-22T17:08:04+01:00 METHOD: POST
+2025-11-22T17:08:04+01:00 URI: /exsepareoffre/login.php?t=1763827684405
+2025-11-22T17:08:04+01:00 POST data: {"email":"mahran@mahran.com","password":"mahran123","role":"user"}
+2025-11-22T17:08:04+01:00 DB.php loaded
+2025-11-22T17:08:04+01:00 Email: mahran@mahran.com | Role: user
+2025-11-22T17:08:04+01:00 Validation OK - Connexion DB...
+2025-11-22T17:08:04+01:00 DB connected - Query user...
+2025-11-22T17:08:04+01:00 Query executed - Rows: 1
+2025-11-22T17:08:04+01:00 User found: mahran@mahran.com | Status: actif
+2025-11-22T17:08:04+01:00 Password OK - Session set
+2025-11-22T17:08:04+01:00 SUCCESS - Login OK
+=== LOGIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T17:08:09+01:00 METHOD: GET
+2025-11-22T17:08:09+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T17:08:09+01:00 Session is_admin: false
+2025-11-22T17:08:09+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T18:29:40+01:00 METHOD: GET
+2025-11-22T18:29:40+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T18:29:40+01:00 Session is_admin: false
+2025-11-22T18:29:40+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T18:29:41+01:00 METHOD: GET
+2025-11-22T18:29:41+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T18:29:41+01:00 Session is_admin: false
+2025-11-22T18:29:41+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T18:34:26+01:00 METHOD: GET
+2025-11-22T18:34:26+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T18:34:26+01:00 Session is_admin: false
+2025-11-22T18:34:26+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T18:34:28+01:00 METHOD: GET
+2025-11-22T18:34:28+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T18:34:28+01:00 Session is_admin: false
+2025-11-22T18:34:28+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== LOGIN.PHP START ===
+2025-11-22T18:34:31+01:00 METHOD: POST
+2025-11-22T18:34:31+01:00 URI: /exsepareoffre/login.php?t=1763832871866
+2025-11-22T18:34:31+01:00 POST data: {"email":"mahran@mahran.com","password":"mahran123","role":"user"}
+2025-11-22T18:34:31+01:00 DB.php loaded
+2025-11-22T18:34:31+01:00 Email: mahran@mahran.com | Role: user
+2025-11-22T18:34:31+01:00 Validation OK - Connexion DB...
+2025-11-22T18:34:31+01:00 DB connected - Query user...
+2025-11-22T18:34:31+01:00 Query executed - Rows: 1
+2025-11-22T18:34:31+01:00 User found: mahran@mahran.com | Status: actif
+2025-11-22T18:34:32+01:00 Password OK - Session set
+2025-11-22T18:34:32+01:00 SUCCESS - Login OK
+=== LOGIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T18:34:36+01:00 METHOD: GET
+2025-11-22T18:34:36+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T18:34:36+01:00 Session is_admin: false
+2025-11-22T18:34:36+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T18:36:43+01:00 METHOD: GET
+2025-11-22T18:36:43+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T18:36:43+01:00 Session is_admin: false
+2025-11-22T18:36:43+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== LOGIN.PHP START ===
+2025-11-22T18:36:49+01:00 METHOD: POST
+2025-11-22T18:36:49+01:00 URI: /exsepareoffre/login.php?t=1763833009799
+2025-11-22T18:36:49+01:00 POST data: {"email":"mahran@mahran.com","password":"mahran123","role":"user"}
+2025-11-22T18:36:49+01:00 DB.php loaded
+2025-11-22T18:36:49+01:00 Email: mahran@mahran.com | Role: user
+2025-11-22T18:36:49+01:00 Validation OK - Connexion DB...
+2025-11-22T18:36:49+01:00 DB connected - Query user...
+2025-11-22T18:36:49+01:00 Query executed - Rows: 1
+2025-11-22T18:36:49+01:00 User found: mahran@mahran.com | Status: actif
+2025-11-22T18:36:49+01:00 Password OK - Session set
+2025-11-22T18:36:49+01:00 SUCCESS - Login OK
+=== LOGIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T18:36:59+01:00 METHOD: GET
+2025-11-22T18:36:59+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T18:36:59+01:00 Session is_admin: false
+2025-11-22T18:36:59+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T18:38:23+01:00 METHOD: GET
+2025-11-22T18:38:23+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T18:38:23+01:00 Session is_admin: false
+2025-11-22T18:38:23+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== LOGIN.PHP START ===
+2025-11-22T18:38:27+01:00 METHOD: POST
+2025-11-22T18:38:27+01:00 URI: /exsepareoffre/login.php?t=1763833107578
+2025-11-22T18:38:27+01:00 POST data: {"email":"mahran@mahran.com","password":"mahran123","role":"user"}
+2025-11-22T18:38:27+01:00 DB.php loaded
+2025-11-22T18:38:27+01:00 Email: mahran@mahran.com | Role: user
+2025-11-22T18:38:27+01:00 Validation OK - Connexion DB...
+2025-11-22T18:38:27+01:00 DB connected - Query user...
+2025-11-22T18:38:27+01:00 Query executed - Rows: 1
+2025-11-22T18:38:27+01:00 User found: mahran@mahran.com | Status: actif
+2025-11-22T18:38:27+01:00 Password OK - Session set
+2025-11-22T18:38:27+01:00 SUCCESS - Login OK
+=== LOGIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T18:38:30+01:00 METHOD: GET
+2025-11-22T18:38:30+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T18:38:30+01:00 Session is_admin: false
+2025-11-22T18:38:30+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T18:40:52+01:00 METHOD: GET
+2025-11-22T18:40:52+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T18:40:52+01:00 Session is_admin: false
+2025-11-22T18:40:52+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T18:41:46+01:00 METHOD: GET
+2025-11-22T18:41:46+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T18:41:46+01:00 Session is_admin: false
+2025-11-22T18:41:46+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== LOGIN.PHP START ===
+2025-11-22T18:42:04+01:00 METHOD: POST
+2025-11-22T18:42:04+01:00 URI: /exsepareoffre/login.php?t=1763833324443
+2025-11-22T18:42:04+01:00 POST data: {"email":"test1@test1.com","password":"test123","role":"user"}
+2025-11-22T18:42:04+01:00 DB.php loaded
+2025-11-22T18:42:04+01:00 Email: test1@test1.com | Role: user
+2025-11-22T18:42:04+01:00 Validation OK - Connexion DB...
+2025-11-22T18:42:04+01:00 DB connected - Query user...
+2025-11-22T18:42:04+01:00 Query executed - Rows: 0
+2025-11-22T18:42:04+01:00 ERROR: Email not found
+
+=== LOGIN.PHP START ===
+2025-11-22T18:42:08+01:00 METHOD: POST
+2025-11-22T18:42:08+01:00 URI: /exsepareoffre/login.php?t=1763833328715
+2025-11-22T18:42:08+01:00 POST data: {"email":"test1@test.com","password":"test123","role":"user"}
+2025-11-22T18:42:08+01:00 DB.php loaded
+2025-11-22T18:42:08+01:00 Email: test1@test.com | Role: user
+2025-11-22T18:42:08+01:00 Validation OK - Connexion DB...
+2025-11-22T18:42:08+01:00 DB connected - Query user...
+2025-11-22T18:42:08+01:00 Query executed - Rows: 0
+2025-11-22T18:42:08+01:00 ERROR: Email not found
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T18:43:12+01:00 METHOD: GET
+2025-11-22T18:43:12+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T18:43:12+01:00 Session is_admin: false
+2025-11-22T18:43:12+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== LOGIN.PHP START ===
+2025-11-22T18:43:27+01:00 METHOD: POST
+2025-11-22T18:43:27+01:00 URI: /exsepareoffre/login.php?t=1763833407049
+2025-11-22T18:43:27+01:00 POST data: {"email":"test1@test.com","password":"ahmed123","role":"user"}
+2025-11-22T18:43:27+01:00 DB.php loaded
+2025-11-22T18:43:27+01:00 Email: test1@test.com | Role: user
+2025-11-22T18:43:27+01:00 Validation OK - Connexion DB...
+2025-11-22T18:43:27+01:00 DB connected - Query user...
+2025-11-22T18:43:27+01:00 Query executed - Rows: 1
+2025-11-22T18:43:27+01:00 User found: test1@test.com | Status: actif
+2025-11-22T18:43:27+01:00 Password OK - Session set
+2025-11-22T18:43:27+01:00 SUCCESS - Login OK
+=== LOGIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T18:43:29+01:00 METHOD: GET
+2025-11-22T18:43:29+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T18:43:29+01:00 Session is_admin: false
+2025-11-22T18:43:29+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T18:52:28+01:00 METHOD: GET
+2025-11-22T18:52:28+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T18:52:28+01:00 Session is_admin: false
+2025-11-22T18:52:28+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T18:52:35+01:00 METHOD: GET
+2025-11-22T18:52:35+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T18:52:35+01:00 Session is_admin: false
+2025-11-22T18:52:35+01:00 Response sent
+=== IS_ADMIN.PHP END ===
+
+=== LOGIN.PHP START ===
+2025-11-22T18:52:48+01:00 METHOD: POST
+2025-11-22T18:52:48+01:00 URI: /exsepareoffre/login.php?t=1763833968517
+2025-11-22T18:52:48+01:00 POST data: {"email":"test1@test.com","password":"ahmed123","role":"user"}
+2025-11-22T18:52:48+01:00 DB.php loaded
+2025-11-22T18:52:48+01:00 Email: test1@test.com | Role: user
+2025-11-22T18:52:48+01:00 Validation OK - Connexion DB...
+2025-11-22T18:52:48+01:00 DB connected - Query user...
+2025-11-22T18:52:48+01:00 Query executed - Rows: 1
+2025-11-22T18:52:48+01:00 User found: test1@test.com | Status: actif
+2025-11-22T18:52:48+01:00 Password OK - Session set
+2025-11-22T18:52:48+01:00 SUCCESS - Login OK
+=== LOGIN.PHP END ===
+
+=== IS_ADMIN.PHP START ===
+2025-11-22T18:52:50+01:00 METHOD: GET
+2025-11-22T18:52:50+01:00 URI: /exsepareoffre/is_admin.php
+2025-11-22T18:52:50+01:00 Session is_admin: false
+2025-11-22T18:52:50+01:00 Response sent
+=== IS_ADMIN.PHP END ===

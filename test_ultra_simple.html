@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Ultra Simple</title>
+    <style>
+        body { padding: 20px; font-family: Arial; }
+        .card { border: 1px solid #ddd; padding: 15px; margin: 10px 0; }
+        button { padding: 10px 20px; background: blue; color: white; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Test Ultra Simple - Réservation</h1>
+    <div id="container"></div>
+
+    <script>
+        // EXACTEMENT comme dans index_one.html
+        let allTrajets = [];
+
+        // Fonction pour afficher
+        function afficher() {
+            console.log('📍 Début afficher(), allTrajets.length =', allTrajets.length);
+            
+            const container = document.getElementById('container');
+            container.innerHTML = '';
+
+            allTrajets.forEach(trajet => {
+                const card = `
+                    <div class="card">
+                        <strong>${trajet.depart} → ${trajet.arrivee}</strong><br>
+                        Prix: ${trajet.prix} DT<br>
+                        <button class="btn-reserver" data-id="${trajet.id}">Réserver ID=${trajet.id}</button>
+                    </div>
+                `;
+                container.insertAdjacentHTML('beforeend', card);
+            });
+
+            // Attacher événements
+            console.log('📍 Attachement des événements...');
+            const buttons = document.querySelectorAll('.btn-reserver');
+            console.log('📍 Nombre de boutons trouvés:', buttons.length);
+            
+            buttons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const id = this.getAttribute('data-id');
+                    console.log('🎯 CLIC! ID from button:', id);
+                    reserver(id);
+                });
+            });
+            
+            console.log('📍 Fin afficher()');
+        }
+
+        // Fonction réserver
+        function reserver(trajetId) {
+            console.log('🔵 reserver() appelé avec:', trajetId, 'type:', typeof trajetId);
+            console.log('🔵 allTrajets:', allTrajets);
+            console.log('🔵 allTrajets IDs:', allTrajets.map(t => t.id));
+            
+            const id = parseInt(trajetId);
+            console.log('🔵 id après parseInt:', id, 'type:', typeof id);
+            
+            const trajet = allTrajets.find(t => {
+                console.log('  Comparaison:', parseInt(t.id), '===', id, '?', parseInt(t.id) === id);
+                return parseInt(t.id) === id;
+            });
+            
+            if (!trajet) {
+                alert('❌ TRAJET INTROUVABLE!\nID recherché: ' + id + '\nIDs disponibles: ' + allTrajets.map(t => t.id).join(', '));
+                return;
+            }
+            
+            alert('✅ Trajet trouvé: ' + trajet.depart + ' → ' + trajet.arrivee);
+        }
+
+        // Charger les données
+        function charger() {
+            console.log('🔵 Chargement...');
+            fetch('rechercher_trajets.php')
+                .then(r => r.json())
+                .then(data => {
+                    console.log('📥 Données:', data);
+                    if (data.success && data.trajets) {
+                        allTrajets = data.trajets.map(t => ({
+                            id: parseInt(t.id),
+                            depart: t.lieu_depart,
+                            arrivee: t.lieu_arrivee,
+                            prix: parseFloat(t.prix)
+                        }));
+                        console.log('✅ allTrajets chargé:', allTrajets);
+                        afficher();
+                    }
+                })
+                .catch(err => console.error('❌ Erreur:', err));
+        }
+
+        // Démarrage
+        document.addEventListener('DOMContentLoaded', charger);
+    </script>
+</body>
+</html>

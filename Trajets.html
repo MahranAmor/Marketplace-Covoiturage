@@ -613,7 +613,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h2>Mon Panier</h2>
-                <button class="close-modal" onclick="closeModal()">&times;</button>
+                <button class="close-modal" id="closePanierBtn">&times;</button>
             </div>
             <div id="panierContent"></div>
         </div>
@@ -669,6 +669,16 @@
             
             const today = new Date().toISOString().split('T')[0];
             document.getElementById('filterDate').setAttribute('min', today);
+            
+            // Bouton fermer panier - Utiliser délégation d'événements sur document
+            document.addEventListener('click', function(e) {
+                if (e.target && e.target.id === 'closePanierBtn') {
+                    console.log('🎯 CLIC sur bouton fermeture via délégation !');
+                    closePanierModal();
+                }
+            });
+            
+            console.log('✅ Délégation événement configurée pour closePanierBtn');
         });
 
         // Afficher les trajets
@@ -732,13 +742,21 @@
                                 <div class="price">${trajet.prix} DT</div>
                                 <div class="price-label">par personne</div>
                             </div>
-                            <button class="btn btn-primary btn-small" onclick="ajouterAuPanier(${trajet.id})" ${trajet.places === 0 ? 'disabled' : ''}>
+                            <button class="btn btn-primary btn-small btn-reserver" data-trajet-id="${trajet.id}" ${trajet.places === 0 ? 'disabled' : ''}>
                                 ${trajet.places > 0 ? '🛒 Réserver' : 'Complet'}
                             </button>
                         </div>
                     </div>
                 `;
                 grid.innerHTML += card;
+            });
+
+            // Attacher les événements click après avoir inséré le HTML
+            document.querySelectorAll('.btn-reserver').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const trajetId = this.getAttribute('data-trajet-id');
+                    ajouterAuPanier(trajetId);
+                });
             });
         }
 
@@ -825,12 +843,59 @@
 
         // Ajouter au panier
         function ajouterAuPanier(trajetId) {
-            const trajet = allTrajets.find(t => t.id === trajetId);
-            if (trajet && trajet.places > 0) {
-                panier.push(trajet);
-                updatePanierCount();
-                alert('✅ Trajet ajouté au panier !');
+            console.log('🔵 Ajout au panier - trajetId:', trajetId, 'type:', typeof trajetId);
+            console.log('🔵 allTrajets disponibles:', allTrajets.length, allTrajets.map(t => ({id: t.id, type: typeof t.id})));
+            
+            const id = parseInt(trajetId);
+            const trajet = allTrajets.find(t => parseInt(t.id) === id);
+            if (!trajet) {
+                console.error('❌ Trajet introuvable! ID recherché:', id);
+                alert('❌ Trajet introuvable (ID: ' + id + ')');
+                return;
             }
+            
+            console.log('✅ Trajet trouvé:', trajet);
+            
+            if (trajet.places <= 0) {
+                alert('❌ Plus de places disponibles');
+                return;
+            }
+            
+            // Demander le nombre de places
+            const nombrePlaces = prompt('Combien de places souhaitez-vous réserver ?', '1');
+            
+            if (!nombrePlaces || parseInt(nombrePlaces) <= 0) {
+                return;
+            }
+            
+            const places = parseInt(nombrePlaces);
+            
+            if (places > trajet.places) {
+                alert(`❌ Seulement ${trajet.places} place(s) disponible(s)`);
+                return;
+            }
+            
+            // Vérifier si le trajet est déjà dans le panier
+            const indexExistant = panier.findIndex(item => item.id === trajetId);
+            
+            if (indexExistant !== -1) {
+                panier[indexExistant].places = places;
+                panier[indexExistant].prixTotal = trajet.prix * places;
+            } else {
+                panier.push({
+                    id: trajet.id,
+                    depart: trajet.depart,
+                    arrivee: trajet.arrivee,
+                    date: trajet.date,
+                    heure: trajet.heure,
+                    prix: trajet.prix,
+                    places: places,
+                    prixTotal: trajet.prix * places
+                });
+            }
+            
+            updatePanierCount();
+            alert('✅ Trajet ajouté au panier !\n' + places + ' place(s) pour ' + (trajet.prix * places) + ' DT');
         }
 
         // Mettre à jour le compteur du panier
@@ -895,16 +960,77 @@
         }
 
         // Confirmer la réservation
-        function confirmerReservation() {
-            if (panier.length === 0) return;
+        async function confirmerReservation() {
+            if (panier.length === 0) {
+                alert('❌ Votre panier est vide');
+                return;
+            }
 
-            panier.forEach(trajetPanier => {
-            const trajet = allTrajets.find(t => t.id === trajetPanier.id);
-            if (trajet) {
-                trajet.places--; // décrémente le nombre de places disponibles
+            console.log('🔵 Confirmation des réservations:', panier);
+            
+            let nbReussies = 0;
+            let nbEchecs = 0;
+            let messagesErreurs = [];
+
+            for (const item of panier) {
+                try {
+                    const response = await fetch('creer_reservation.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: `trajet_id=${item.id}&nombre_places=${item.places}`
+                    });
+                    
+                    const data = await response.json();
+                    
+                    if (data.success) {
+                        nbReussies++;
+                        console.log('✅ Réservation réussie:', item);
+                    } else {
+                        nbEchecs++;
+                        messagesErreurs.push(`${item.depart} → ${item.arrivee}: ${data.message}`);
+                    }
+                } catch (error) {
+                    nbEchecs++;
+                    messagesErreurs.push(`${item.depart} → ${item.arrivee}: Erreur technique`);
+                    console.error('❌ Erreur:', error);
+                }
+            }
+
+            let message = '';
+            if (nbReussies > 0) {
+                message += `✅ ${nbReussies} réservation(s) confirmée(s) !\n`;
+            }
+            if (nbEchecs > 0) {
+                message += `\n❌ ${nbEchecs} échec(s):\n` + messagesErreurs.join('\n');
+            }
+            
+            alert(message);
+            
+            panier = [];
+            updatePanierCount();
+            closeModal();
+            chargerTrajetsActifs(); // Recharger les trajets
         }
-    });
-}
+
+        // Fermer les modals
+        function closeModal() {
+            console.log('🔴 Fermeture du modal...');
+            document.querySelectorAll('.modal').forEach(modal => {
+                modal.classList.remove('active');
+            });
+        }
+        
+        function closePanierModal() {
+            console.log('🔴 Fermeture du panier...');
+            document.getElementById('panierModal').classList.remove('active');
+        }
+
+        // Fermer modal en cliquant à l'extérieur
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                closeModal();
+            }
+        }
     </script>
 </body>
 </html>

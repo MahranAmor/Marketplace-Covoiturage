@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Réservation</title>
+    <style>
+        body { font-family: Arial; padding: 20px; background: #f5f5f5; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; }
+        button { padding: 10px 20px; margin: 10px; cursor: pointer; border: none; border-radius: 4px; }
+        .btn-primary { background: #667eea; color: white; }
+        .btn-secondary { background: #6c757d; color: white; }
+        #output { background: #f8f9fa; padding: 15px; border-radius: 4px; margin-top: 20px; white-space: pre-wrap; font-family: monospace; }
+        .success { color: green; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Test Système de Réservation</h1>
+        
+        <h2>Étape 1: Vérifier la session</h2>
+        <button class="btn-primary" onclick="testSession()">Tester Session</button>
+        
+        <h2>Étape 2: Vérifier les trajets disponibles</h2>
+        <button class="btn-primary" onclick="testTrajets()">Charger Trajets</button>
+        
+        <h2>Étape 3: Créer une réservation</h2>
+        <label>Trajet ID: <input type="number" id="trajetId" value="1"></label>
+        <label>Nombre de places: <input type="number" id="nombrePlaces" value="1"></label>
+        <button class="btn-primary" onclick="testReservation()">Créer Réservation</button>
+        
+        <h2>Résultat:</h2>
+        <div id="output">Les résultats s'afficheront ici...</div>
+    </div>
+
+    <script>
+        function log(message, type = 'info') {
+            const output = document.getElementById('output');
+            const color = type === 'success' ? 'green' : type === 'error' ? 'red' : 'black';
+            output.innerHTML += `<span style="color: ${color}">${new Date().toLocaleTimeString()}: ${message}</span>\n`;
+        }
+
+        async function testSession() {
+            log('🔍 Test de session...');
+            try {
+                const response = await fetch('test_reservation.php', {
+                    method: 'POST'
+                });
+                const data = await response.json();
+                log(JSON.stringify(data, null, 2), data.session_user_id !== 'NON_CONNECTE' ? 'success' : 'error');
+                
+                if (data.session_user_id === 'NON_CONNECTE') {
+                    log('❌ Vous devez vous connecter d\'abord sur index_one.html', 'error');
+                } else {
+                    log(`✅ Connecté en tant qu'utilisateur ID: ${data.session_user_id}`, 'success');
+                }
+            } catch (error) {
+                log('❌ Erreur: ' + error.message, 'error');
+            }
+        }
+
+        async function testTrajets() {
+            log('🔍 Chargement des trajets...');
+            try {
+                const response = await fetch('rechercher_trajets.php');
+                const data = await response.json();
+                
+                if (data.success) {
+                    log(`✅ ${data.count} trajet(s) trouvé(s)`, 'success');
+                    data.trajets.slice(0, 3).forEach(t => {
+                        log(`  - ID ${t.id}: ${t.lieu_depart} → ${t.lieu_arrivee} (${t.places_disponibles} places, ${t.prix} DT)`);
+                    });
+                } else {
+                    log('❌ ' + data.message, 'error');
+                }
+            } catch (error) {
+                log('❌ Erreur: ' + error.message, 'error');
+            }
+        }
+
+        async function testReservation() {
+            const trajetId = document.getElementById('trajetId').value;
+            const nombrePlaces = document.getElementById('nombrePlaces').value;
+            
+            log(`🔍 Création réservation: trajet ${trajetId}, ${nombrePlaces} place(s)...`);
+            
+            try {
+                const response = await fetch('creer_reservation.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: `trajet_id=${trajetId}&nombre_places=${nombrePlaces}`
+                });
+                
+                const text = await response.text();
+                log('Réponse brute: ' + text);
+                
+                try {
+                    const data = JSON.parse(text);
+                    if (data.success) {
+                        log(`✅ SUCCÈS: ${data.message}`, 'success');
+                        log(`   Prix total: ${data.prix_total} DT`, 'success');
+                        log(`   Réservation ID: ${data.reservation_id}`, 'success');
+                    } else {
+                        log(`❌ ÉCHEC: ${data.message}`, 'error');
+                    }
+                } catch (e) {
+                    log('❌ Réponse non-JSON: ' + text, 'error');
+                }
+            } catch (error) {
+                log('❌ Erreur réseau: ' + error.message, 'error');
+            }
+        }
+    </script>
+</body>
+</html>

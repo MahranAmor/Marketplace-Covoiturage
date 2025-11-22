@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Simple Réservation</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        .trajet { border: 1px solid #ddd; padding: 15px; margin: 10px 0; border-radius: 5px; }
+        button { padding: 10px 20px; background: #667eea; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #5568d3; }
+        pre { background: #f5f5f5; padding: 10px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Test Simple - Système de Réservation</h1>
+    
+    <div id="status"></div>
+    <div id="trajets"></div>
+    <div id="panier-info"></div>
+
+    <script>
+        let allTrajets = [];
+        let panier = [];
+
+        // Charger les trajets
+        function chargerTrajets() {
+            document.getElementById('status').innerHTML = '⏳ Chargement des trajets...';
+            
+            fetch('rechercher_trajets.php')
+                .then(r => r.json())
+                .then(data => {
+                    console.log('📥 Données reçues:', data);
+                    
+                    if (data.success && data.trajets) {
+                        allTrajets = data.trajets.map(t => ({
+                            id: parseInt(t.id),
+                            depart: t.lieu_depart,
+                            arrivee: t.lieu_arrivee,
+                            prix: parseFloat(t.prix),
+                            places: parseInt(t.places_disponibles),
+                            conducteur: t.conducteur_nom
+                        }));
+                        
+                        document.getElementById('status').innerHTML = `✅ ${allTrajets.length} trajets chargés`;
+                        afficherTrajets();
+                    } else {
+                        document.getElementById('status').innerHTML = '❌ Erreur: ' + (data.message || 'Pas de trajets');
+                    }
+                })
+                .catch(err => {
+                    document.getElementById('status').innerHTML = '❌ Erreur: ' + err.message;
+                    console.error(err);
+                });
+        }
+
+        // Afficher les trajets
+        function afficherTrajets() {
+            const container = document.getElementById('trajets');
+            container.innerHTML = '<h2>Trajets disponibles:</h2>';
+            
+            allTrajets.forEach(trajet => {
+                container.innerHTML += `
+                    <div class="trajet">
+                        <strong>${trajet.depart} → ${trajet.arrivee}</strong><br>
+                        Prix: ${trajet.prix} DT | Places: ${trajet.places}<br>
+                        Conducteur: ${trajet.conducteur}<br>
+                        <button onclick="reserver(${trajet.id})">Réserver</button>
+                    </div>
+                `;
+            });
+            
+            console.log('📊 allTrajets:', allTrajets);
+        }
+
+        // Réserver un trajet
+        function reserver(trajetId) {
+            console.log('🎯 Réservation trajet ID:', trajetId, 'type:', typeof trajetId);
+            console.log('🎯 allTrajets IDs:', allTrajets.map(t => ({id: t.id, type: typeof t.id})));
+            
+            const trajet = allTrajets.find(t => parseInt(t.id) === parseInt(trajetId));
+            
+            if (!trajet) {
+                alert('❌ Trajet introuvable!\nID recherché: ' + trajetId + '\nIDs disponibles: ' + allTrajets.map(t => t.id).join(', '));
+                return;
+            }
+            
+            console.log('✅ Trajet trouvé:', trajet);
+            
+            const places = prompt('Nombre de places ?', '1');
+            if (!places || parseInt(places) <= 0) return;
+            
+            panier.push({
+                id: trajet.id,
+                depart: trajet.depart,
+                arrivee: trajet.arrivee,
+                prix: trajet.prix,
+                places: parseInt(places),
+                total: trajet.prix * parseInt(places)
+            });
+            
+            afficherPanier();
+            alert('✅ Trajet ajouté au panier!');
+        }
+
+        // Afficher le panier
+        function afficherPanier() {
+            const container = document.getElementById('panier-info');
+            if (panier.length === 0) {
+                container.innerHTML = '';
+                return;
+            }
+            
+            let html = '<h2>🛒 Panier (' + panier.length + ' trajets):</h2><pre>';
+            panier.forEach(item => {
+                html += `${item.depart} → ${item.arrivee} | ${item.places} place(s) = ${item.total} DT\n`;
+            });
+            html += '</pre><button onclick="confirmer()">Confirmer toutes les réservations</button>';
+            container.innerHTML = html;
+        }
+
+        // Confirmer les réservations
+        async function confirmer() {
+            for (const item of panier) {
+                const formData = new URLSearchParams();
+                formData.append('trajet_id', item.id);
+                formData.append('nombre_places', item.places);
+                
+                const response = await fetch('creer_reservation.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: formData
+                });
+                
+                const result = await response.json();
+                console.log('Réservation', item.id, ':', result);
+                
+                if (!result.success) {
+                    alert('❌ Erreur pour ' + item.depart + ' → ' + item.arrivee + ':\n' + result.message);
+                }
+            }
+            
+            alert('✅ Réservations traitées!');
+            panier = [];
+            afficherPanier();
+            chargerTrajets();
+        }
+
+        // Chargement initial
+        window.onload = function() {
+            chargerTrajets();
+        };
+    </script>
+</body>
+</html>

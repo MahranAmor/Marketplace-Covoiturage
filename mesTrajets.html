@@ -411,88 +411,9 @@
 
     <script>
         // Données simulées
-        let trajetsPublies = [
-            {
-                id: 1,
-                depart: "Tunis",
-                arrivee: "Sousse",
-                date: "2025-10-20",
-                heure: "09:00",
-                places: 3,
-                placesInitiales: 3,
-                prix: 15,
-                statut: "actif",
-                reservations: []
-            },
-            {
-                id: 2,
-                depart: "Sfax",
-                arrivee: "Tunis",
-                date: "2025-10-25",
-                heure: "14:00",
-                places: 1,
-                placesInitiales: 4,
-                prix: 25,
-                statut: "actif",
-                reservations: [
-                    { nom: "Ahmed Ben Ali", places: 2, telephone: "12345678" },
-                    { nom: "Sara Mansour", places: 1, telephone: "87654321" }
-                ]
-            },
-            {
-                id: 3,
-                depart: "Monastir",
-                arrivee: "Hammamet",
-                date: "2025-10-10",
-                heure: "10:30",
-                places: 0,
-                placesInitiales: 2,
-                prix: 12,
-                statut: "termine",
-                reservations: [
-                    { nom: "Karim Zaouali", places: 2, telephone: "55443322" }
-                ]
-            }
-        ];
-
-        let mesReservationsData = [
-            {
-                id: 1,
-                depart: "Sfax",
-                arrivee: "Monastir",
-                date: "2025-10-15",
-                heure: "08:00",
-                places: 2,
-                prix: 15,
-                conducteur: "Salah Merghi",
-                telephone: "20123456",
-                statut: "confirmee"
-            },
-            {
-                id: 2,
-                depart: "Qabes",
-                arrivee: "Medenine",
-                date: "2025-10-17",
-                heure: "10:00",
-                places: 1,
-                prix: 20,
-                conducteur: "Monem Guesmi",
-                telephone: "22334455",
-                statut: "confirmee"
-            },
-            {
-                id: 3,
-                depart: "Tunis",
-                arrivee: "Bizerte",
-                date: "2025-10-05",
-                heure: "15:00",
-                places: 1,
-                prix: 10,
-                conducteur: "Amine Trabelsi",
-                telephone: "98765432",
-                statut: "terminee"
-            }
-        ];
+        // Variables globales - chargées depuis la base de données
+        let trajetsPublies = [];
+        let mesReservationsData = [];
 
         // Afficher les trajets publiés
         function displayTrajetsPublies() {
@@ -722,9 +643,59 @@
         }
 
         // Initialisation
+        // Charger les trajets publiés depuis la base de données
+        function chargerMesTrajets() {
+            fetch('mes_trajets.php?action=list')
+                .then(r => r.json())
+                .then(data => {
+                    console.log('🔵 Trajets publiés:', data);
+                    if (data.success && data.trajets) {
+                        trajetsPublies = data.trajets.map(t => ({
+                            id: parseInt(t.id),
+                            depart: t.lieu_depart,
+                            arrivee: t.lieu_arrivee,
+                            date: t.date_trajet,
+                            heure: t.heure_trajet,
+                            places: parseInt(t.places_disponibles),
+                            placesInitiales: parseInt(t.places_initiales),
+                            prix: parseFloat(t.prix),
+                            statut: t.statut,
+                            reservations: parseInt(t.nombre_reservations) || 0
+                        }));
+                        displayTrajetsPublies();
+                    }
+                })
+                .catch(err => console.error('❌ Erreur chargement trajets:', err));
+        }
+
+        // Charger mes réservations depuis la base de données
+        function chargerMesReservations() {
+            fetch('mes_trajets.php?action=mes_reservations')
+                .then(r => r.json())
+                .then(data => {
+                    console.log('🔵 Mes réservations:', data);
+                    if (data.success && data.reservations) {
+                        mesReservationsData = data.reservations.map(r => ({
+                            id: parseInt(r.id),
+                            depart: r.lieu_depart,
+                            arrivee: r.lieu_arrivee,
+                            date: r.date_trajet,
+                            heure: r.heure_trajet,
+                            places: parseInt(r.nombre_places),
+                            prix: parseFloat(r.prix_total),
+                            conducteur: r.conducteur_nom,
+                            telephone: r.conducteur_tel || 'N/A',
+                            statut: r.statut
+                        }));
+                        displayReservations();
+                    }
+                })
+                .catch(err => console.error('❌ Erreur chargement réservations:', err));
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
-            displayTrajetsPublies();
-            displayReservations();
+            chargerMesTrajets();
+            chargerMesReservations();
         });
     </script>
 </body>
